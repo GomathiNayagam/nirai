@@ -1,0 +1,15 @@
+RDH275 6925
+KPC2_FAX76295 7401
+KPC2_FAV69578 6950
+KPC2_FAX39616 6993
+KPC2_FAX39617 6415
+LADDER_Oct 29822
+ZYMO 2483
+low = mean Q < 10.0; reads 66989; low share per run: KPC2_FAV69578 4.2%, KPC2_FAX39616 1.1%, KPC2_FAX39617 0.9%, KPC2_FAX76295 0.7%, LADDER_Oct 0.2%, RDH275 2.5%, ZYMO 0.8%
+held-out run         n  low n   CNN+scalars: AUC  good kept  low caught   |  scalars only (no signal): AUC  good kept  low caught
+KPC2_FAV69578     6950    293                   0.787       80%        63%   |                   0.500      100%         0%
+KPC2_FAX39616     6993     76                   0.874       96%        55%   |                   0.500      100%         0%
+KPC2_FAX39617     6415     59                   0.875       97%        39%   |                   0.500      100%         0%
+KPC2_FAX76295     7401     50                   0.878       97%        26%   |                   0.500      100%         0%
+RDH275            6925    175                   0.861       97%        43%   |                   0.500      100%         0%
+mean                                            0.855       93%        45%   |                   0.500      100%         0%

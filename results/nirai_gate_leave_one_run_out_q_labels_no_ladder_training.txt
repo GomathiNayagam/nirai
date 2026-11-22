@@ -1,0 +1,119 @@
+
+run summary (hac mean Q):
+                 count   25%   50%   75%
+run                                     
+KPC2_FAV69578   7880.0  11.2  12.6  14.1
+KPC2_FAX39616   7404.0  15.5  17.9  19.7
+KPC2_FAX39617   7959.0  14.9  17.8  19.8
+KPC2_FAX76295   7979.0  15.3  17.8  19.7
+LADDER_Oct     39892.0  15.3  18.1  20.7
+RDH275          7978.0  14.3  17.1  19.1
+ZYMO            2974.0  17.3  20.1  22.3
+
+===== "low quality" = mean Q < 8 =====
+share low per run: KPC2_FAV69578 5%, KPC2_FAX39616 0%, KPC2_FAX39617 0%, KPC2_FAX76295 0%, LADDER_Oct 0%, RDH275 1%, ZYMO 0%
+
+  -- raw features --
+  held-out run        n   low%   AUC   | threshold from TRAIN runs: good kept / low caught | threshold set on held-out run: low caught
+  RDH275              7978   0.7%  0.73   |     100% /     4%   |      24%
+  KPC2_FAX76295       7979   0.1%  0.76   |      93% /    33%   |      33%
+  KPC2_FAV69578       7880   4.8%  0.48   |      73% /    26%   |       7%
+  KPC2_FAX39616       7404   0.2%  0.68   |      99% /    25%   |      33%
+  KPC2_FAX39617       7959   0.1%  0.74   |      99% /    30%   |      60%
+  LADDER_Oct         39892   0.0%  0.96   |      99% /    83%   |      89%
+  ZYMO                2974   0.4%  0.74   |      83% /    38%   |      23%
+  mean over runs: AUC 0.73, good kept 92%, low caught 34% (own-threshold 39%)
+
+  -- run-relative features --
+  held-out run        n   low%   AUC   | threshold from TRAIN runs: good kept / low caught | threshold set on held-out run: low caught
+  RDH275              7978   0.7%  0.63   |      99% /     6%   |      11%
+  KPC2_FAX76295       7979   0.1%  0.77   |      93% /    17%   |      17%
+  KPC2_FAV69578       7880   4.8%  0.50   |      96% /    17%   |      20%
+  KPC2_FAX39616       7404   0.2%  0.58   |      98% /     8%   |      42%
+  KPC2_FAX39617       7959   0.1%  0.82   |      99% /    40%   |      50%
+  LADDER_Oct         39892   0.0%  0.99   |      99% /    83%   |     100%
+  ZYMO                2974   0.4%  0.95   |      97% /    85%   |      85%
+  mean over runs: AUC 0.75, good kept 97%, low caught 36% (own-threshold 46%)
+
+  -- raw + relative --
+  held-out run        n   low%   AUC   | threshold from TRAIN runs: good kept / low caught | threshold set on held-out run: low caught
+  RDH275              7978   0.7%  0.69   |     100% /     2%   |       9%
+  KPC2_FAX76295       7979   0.1%  0.77   |      94% /    33%   |      17%
+  KPC2_FAV69578       7880   4.8%  0.49   |      79% /    21%   |       8%
+  KPC2_FAX39616       7404   0.2%  0.61   |      99% /    17%   |      33%
+  KPC2_FAX39617       7959   0.1%  0.80   |      99% /    40%   |      60%
+  LADDER_Oct         39892   0.0%  0.99   |     100% /    83%   |      94%
+  ZYMO                2974   0.4%  0.99   |      99% /    69%   |     100%
+  mean over runs: AUC 0.76, good kept 96%, low caught 38% (own-threshold 46%)
+
+===== "low quality" = mean Q < 10 =====
+share low per run: KPC2_FAV69578 10%, KPC2_FAX39616 1%, KPC2_FAX39617 2%, KPC2_FAX76295 1%, LADDER_Oct 0%, RDH275 3%, ZYMO 1%
+
+  -- raw features --
+  held-out run        n   low%   AUC   | threshold from TRAIN runs: good kept / low caught | threshold set on held-out run: low caught
+  RDH275              7978   3.2%  0.77   |      99% /     9%   |      30%
+  KPC2_FAX76295       7979   1.1%  0.66   |      96% /    15%   |      16%
+  KPC2_FAV69578       7880  10.4%  0.51   |      66% /    38%   |       6%
+  KPC2_FAX39616       7404   1.4%  0.68   |      96% /    25%   |      28%
+  KPC2_FAX39617       7959   1.8%  0.65   |      99% /     8%   |      23%
+  LADDER_Oct         39892   0.4%  0.68   |      99% /    21%   |      27%
+  ZYMO                2974   1.0%  0.66   |      94% /    17%   |      10%
+  mean over runs: AUC 0.66, good kept 93%, low caught 19% (own-threshold 20%)
+
+  -- run-relative features --
+  held-out run        n   low%   AUC   | threshold from TRAIN runs: good kept / low caught | threshold set on held-out run: low caught
+  RDH275              7978   3.2%  0.75   |      99% /     9%   |      26%
+  KPC2_FAX76295       7979   1.1%  0.72   |      90% /    32%   |      17%
+  KPC2_FAV69578       7880  10.4%  0.55   |      98% /     9%   |      15%
+  KPC2_FAX39616       7404   1.4%  0.68   |      97% /    20%   |      28%
+  KPC2_FAX39617       7959   1.8%  0.63   |      98% /    10%   |      15%
+  LADDER_Oct         39892   0.4%  0.70   |      98% /    27%   |      32%
+  ZYMO                2974   1.0%  0.79   |      97% /    27%   |      33%
+  mean over runs: AUC 0.69, good kept 97%, low caught 19% (own-threshold 24%)
+
+  -- raw + relative --
+  held-out run        n   low%   AUC   | threshold from TRAIN runs: good kept / low caught | threshold set on held-out run: low caught
+  RDH275              7978   3.2%  0.77   |      99% /     5%   |      35%
+  KPC2_FAX76295       7979   1.1%  0.69   |      95% /    19%   |      19%
+  KPC2_FAV69578       7880  10.4%  0.52   |      93% /    15%   |      13%
+  KPC2_FAX39616       7404   1.4%  0.70   |      95% /    24%   |      24%
+  KPC2_FAX39617       7959   1.8%  0.69   |      98% /    19%   |      27%
+  LADDER_Oct         39892   0.4%  0.72   |     100% /    20%   |      33%
+  ZYMO                2974   1.0%  0.88   |     100% /    13%   |      63%
+  mean over runs: AUC 0.71, good kept 97%, low caught 17% (own-threshold 31%)
+
+===== "low quality" = mean Q < 12 =====
+share low per run: KPC2_FAV69578 38%, KPC2_FAX39616 6%, KPC2_FAX39617 8%, KPC2_FAX76295 6%, LADDER_Oct 4%, RDH275 10%, ZYMO 3%
+
+  -- raw features --
+  held-out run        n   low%   AUC   | threshold from TRAIN runs: good kept / low caught | threshold set on held-out run: low caught
+  RDH275              7978  10.0%  0.73   |      97% /    20%   |      25%
+  KPC2_FAX76295       7979   6.2%  0.66   |      95% /    14%   |      14%
+  KPC2_FAV69578       7880  37.9%  0.62   |      71% /    47%   |      11%
+  KPC2_FAX39616       7404   5.8%  0.69   |      98% /    17%   |      29%
+  KPC2_FAX39617       7959   8.0%  0.62   |      99% /     4%   |      21%
+  LADDER_Oct         39892   4.3%  0.63   |      99% /     3%   |      11%
+  ZYMO                2974   3.3%  0.69   |     100% /     3%   |      29%
+  mean over runs: AUC 0.66, good kept 94%, low caught 15% (own-threshold 20%)
+
+  -- run-relative features --
+  held-out run        n   low%   AUC   | threshold from TRAIN runs: good kept / low caught | threshold set on held-out run: low caught
+  RDH275              7978  10.0%  0.73   |      99% /     9%   |      27%
+  KPC2_FAX76295       7979   6.2%  0.71   |      86% /    39%   |      15%
+  KPC2_FAV69578       7880  37.9%  0.61   |      98% /     5%   |      10%
+  KPC2_FAX39616       7404   5.8%  0.71   |      98% /    13%   |      23%
+  KPC2_FAX39617       7959   8.0%  0.58   |      97% /     5%   |       6%
+  LADDER_Oct         39892   4.3%  0.63   |      98% /     8%   |      16%
+  ZYMO                2974   3.3%  0.71   |      91% /    18%   |       9%
+  mean over runs: AUC 0.67, good kept 95%, low caught 14% (own-threshold 15%)
+
+  -- raw + relative --
+  held-out run        n   low%   AUC   | threshold from TRAIN runs: good kept / low caught | threshold set on held-out run: low caught
+  RDH275              7978  10.0%  0.73   |     100% /     5%   |      27%
+  KPC2_FAX76295       7979   6.2%  0.69   |      98% /     9%   |      16%
+  KPC2_FAV69578       7880  37.9%  0.63   |      97% /     9%   |      14%
+  KPC2_FAX39616       7404   5.8%  0.71   |      97% /    17%   |      26%
+  KPC2_FAX39617       7959   8.0%  0.65   |      99% /     6%   |      21%
+  LADDER_Oct         39892   4.3%  0.64   |     100% /     2%   |      14%
+  ZYMO                2974   3.3%  0.74   |     100% /     1%   |      38%
+  mean over runs: AUC 0.68, good kept 99%, low caught 7% (own-threshold 22%)
