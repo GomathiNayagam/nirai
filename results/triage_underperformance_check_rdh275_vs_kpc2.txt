@@ -1,0 +1,26 @@
+== RDH275: first 8000 reads of the stream ==
+genome 1.79 Mb; stream 20.1 Mb = 11.2x raw depth; reads with a reference position: 5955 (74%)
+read length (est.): median 1258 b, mean 2508 b; reads <1 kb: 41% of reads, 9.4% of bases; reads <2 kb: 66% / 23.4%
+Rawsamble finds overlaps to earlier reads for 48% of reads; median #earlier reads overlapped 0
+
+reads in the later 2/3 of the stream with true same-strand depth >= 3: 2351; overall estimated/true depth = 0.38
+by read length:      reads  est/true depth  (share of reads whose estimated depth >= half the true depth)
+    <1kb:      636       0.05        0%
+   1-2kb:      687       0.31       23%
+   2-4kb:      573       0.57       62%
+   4-8kb:      271       0.70       81%
+    >8kb:      184       0.74       85%
+
+== KPC2_FAX76295: first 8000 reads of the stream ==
+genome 5.66 Mb; stream 71.0 Mb = 12.5x raw depth; reads with a reference position: 6182 (77%)
+read length (est.): median 3806 b, mean 8872 b; reads <1 kb: 24% of reads, 1.5% of bases; reads <2 kb: 37% / 3.6%
+Rawsamble finds overlaps to earlier reads for 60% of reads; median #earlier reads overlapped 1
+
+reads in the later 2/3 of the stream with true same-strand depth >= 3: 2826; overall estimated/true depth = 0.54
+by read length:      reads  est/true depth  (share of reads whose estimated depth >= half the true depth)
+    <1kb:      290       0.02        0%
+   1-2kb:      348       0.21        7%
+   2-4kb:      523       0.50       47%
+   4-8kb:      647       0.63       75%
+    >8kb:     1018       0.76       86%
+

@@ -1,0 +1,102 @@
+######## RDH275
+stream 32000 reads, 81.5 Mb
+ALL reads: mean depth 33.9, >=5x 100.0%, >=10x 99.8%
+== D=3 (tau 0.25, frozen) ==
+V0 original                     41.6%       13.6   98.0%   88.1%
+   first-come, same bases                   14.0   98.8%   87.2%
+   random, same bases (5)                   14.1   99.0%   87.0%
+V1 length-corrected             34.0%       10.9   97.0%   68.4%
+   first-come, same bases                   11.5   97.9%   69.6%
+   random, same bases (5)                   11.5   97.8%   70.2%
+V2 skip reads <1 kb             37.1%       12.3   97.8%   80.6%
+   first-come, same bases                   12.5   98.4%   78.4%
+   random, same bases (5)                   12.6   98.3%   78.8%
+V3 V1 + V2                      30.0%        9.8   96.3%   54.5%
+   first-come, same bases                   10.2   96.4%   55.4%
+   random, same bases (5)                   10.2   96.1%   55.1%
+V4 V1 + short reads always basecalled  34.8%       11.2   97.1%   71.2%
+   first-come, same bases                   11.7   98.0%   71.7%
+   random, same bases (5)                   11.7   97.7%   70.8%
+== D=5 (tau 0.25, frozen) ==
+V0 original                     50.0%       16.5   98.5%   94.8%
+   first-come, same bases                   16.8   99.4%   94.6%
+   random, same bases (5)                   16.9   99.7%   94.8%
+V1 length-corrected             38.5%       12.5   98.0%   81.7%
+   first-come, same bases                   13.0   98.6%   81.6%
+   random, same bases (5)                   13.0   98.7%   80.9%
+V2 skip reads <1 kb             45.4%       15.1   98.5%   93.2%
+   first-come, same bases                   15.2   99.1%   91.2%
+   random, same bases (5)                   15.4   99.4%   90.8%
+V3 V1 + V2                      34.7%       11.3   97.8%   72.6%
+   first-come, same bases                   11.7   98.0%   71.6%
+   random, same bases (5)                   11.8   97.6%   72.1%
+V4 V1 + short reads always basecalled  39.4%       12.8   98.1%   83.8%
+   first-come, same bases                   13.3   98.7%   83.3%
+   random, same bases (5)                   13.4   98.9%   83.7%
+== D=10 (tau 0.25, frozen) ==
+V0 original                     67.3%       22.6   99.2%   97.9%
+   first-come, same bases                   22.6  100.0%   98.6%
+   random, same bases (5)                   22.8  100.0%   98.7%
+V1 length-corrected             52.5%       17.4   99.2%   97.1%
+   first-come, same bases                   17.7   99.5%   95.6%
+   random, same bases (5)                   17.7   99.6%   95.2%
+V2 skip reads <1 kb             62.7%       21.2   99.2%   97.8%
+   first-come, same bases                   21.0   99.9%   97.9%
+   random, same bases (5)                   21.4   99.8%   98.0%
+V3 V1 + V2                      48.3%       16.1   99.1%   96.3%
+   first-come, same bases                   16.2   99.4%   93.5%
+   random, same bases (5)                   16.4   99.6%   93.0%
+V4 V1 + short reads always basecalled  52.9%       17.5   99.2%   97.1%
+   first-come, same bases                   17.8   99.5%   95.8%
+   random, same bases (5)                   17.9   99.7%   96.3%
+######## KPC2_FAX76295
+stream 15238 reads, 121.8 Mb
+ALL reads: mean depth 16.7, >=5x 99.8%, >=10x 92.5%
+== D=3 (tau 0.25, frozen) ==
+V0 original                     55.9%        9.2   97.3%   38.4%
+   first-come, same bases                    9.4   92.5%   41.5%
+   random, same bases (5)                    9.4   92.8%   42.3%
+V1 length-corrected             48.2%        7.9   92.9%   19.5%
+   first-come, same bases                    8.1   86.1%   28.8%
+   random, same bases (5)                    8.2   86.5%   28.1%
+V2 skip reads <1 kb             55.3%        9.1   97.3%   37.2%
+   first-come, same bases                    9.3   92.3%   40.6%
+   random, same bases (5)                    9.2   91.8%   39.5%
+V3 V1 + V2                      47.6%        7.8   92.6%   18.5%
+   first-come, same bases                    8.0   85.7%   27.6%
+   random, same bases (5)                    7.9   85.3%   26.5%
+V4 V1 + short reads always basecalled  48.2%        7.9   92.9%   19.6%
+   first-come, same bases                    8.1   86.1%   28.9%
+   random, same bases (5)                    8.1   86.9%   27.6%
+== D=5 (tau 0.25, frozen) ==
+V0 original                     71.5%       11.8   99.4%   74.7%
+   first-come, same bases                   12.0   98.1%   67.8%
+   random, same bases (5)                   12.0   97.9%   67.1%
+V1 length-corrected             60.7%       10.0   98.8%   51.6%
+   first-come, same bases                   10.2   94.9%   50.3%
+   random, same bases (5)                   10.2   94.8%   49.6%
+V2 skip reads <1 kb             70.8%       11.7   99.4%   73.8%
+   first-come, same bases                   11.9   98.1%   66.7%
+   random, same bases (5)                   11.9   97.3%   65.8%
+V3 V1 + V2                      60.2%        9.9   98.8%   50.5%
+   first-come, same bases                   10.1   94.7%   48.7%
+   random, same bases (5)                   10.1   94.1%   48.3%
+V4 V1 + short reads always basecalled  60.8%       10.0   98.8%   51.7%
+   first-come, same bases                   10.2   94.9%   50.4%
+   random, same bases (5)                   10.2   94.9%   49.2%
+== D=10 (tau 0.25, frozen) ==
+V0 original                     93.1%       15.6   99.8%   91.6%
+   first-come, same bases                   15.6   99.6%   88.7%
+   random, same bases (5)                   15.6   99.7%   88.6%
+V1 length-corrected             84.2%       14.0   99.7%   88.9%
+   first-come, same bases                   14.1   99.4%   83.1%
+   random, same bases (5)                   14.1   99.3%   82.2%
+V2 skip reads <1 kb             92.5%       15.5   99.8%   91.4%
+   first-come, same bases                   15.5   99.6%   88.2%
+   random, same bases (5)                   15.4   99.7%   88.3%
+V3 V1 + V2                      83.6%       14.0   99.7%   88.6%
+   first-come, same bases                   14.0   99.3%   82.5%
+   random, same bases (5)                   14.0   99.4%   82.3%
+V4 V1 + short reads always basecalled  84.2%       14.0   99.7%   88.9%
+   first-come, same bases                   14.1   99.4%   83.1%
+   random, same bases (5)                   14.1   99.2%   81.9%

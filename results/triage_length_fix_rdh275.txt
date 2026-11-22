@@ -1,0 +1,47 @@
+stream 32000 reads, 81.5 Mb
+ALL reads: mean depth 33.9, >=5x 100.0%, >=10x 99.8%
+
+== D=3 (tau 0.25, frozen) ==
+policy                          bases mean depth    >=5x   >=10x
+V0 original                     41.6%       13.6   98.0%   88.1%
+   first-come, same bases                   14.0   98.8%   87.2%
+   random, same bases (5)                   14.1   99.0%   87.0%
+V1 length-corrected             34.0%       10.9   97.0%   68.4%
+   first-come, same bases                   11.5   97.9%   69.6%
+   random, same bases (5)                   11.5   97.8%   70.2%
+V2 skip reads <1 kb             37.1%       12.3   97.8%   80.6%
+   first-come, same bases                   12.5   98.4%   78.4%
+   random, same bases (5)                   12.6   98.3%   78.8%
+V3 V1 + V2                      30.0%        9.8   96.3%   54.5%
+   first-come, same bases                   10.2   96.4%   55.4%
+   random, same bases (5)                   10.2   96.1%   55.1%
+
+== D=5 (tau 0.25, frozen) ==
+policy                          bases mean depth    >=5x   >=10x
+V0 original                     50.0%       16.5   98.5%   94.8%
+   first-come, same bases                   16.8   99.4%   94.6%
+   random, same bases (5)                   16.9   99.6%   94.5%
+V1 length-corrected             38.5%       12.5   98.0%   81.7%
+   first-come, same bases                   13.0   98.6%   81.6%
+   random, same bases (5)                   13.1   98.6%   81.8%
+V2 skip reads <1 kb             45.4%       15.1   98.5%   93.2%
+   first-come, same bases                   15.2   99.1%   91.2%
+   random, same bases (5)                   15.4   99.5%   90.9%
+V3 V1 + V2                      34.7%       11.3   97.8%   72.6%
+   first-come, same bases                   11.7   98.0%   71.6%
+   random, same bases (5)                   11.8   97.9%   72.7%
+
+== D=10 (tau 0.25, frozen) ==
+policy                          bases mean depth    >=5x   >=10x
+V0 original                     67.3%       22.6   99.2%   97.9%
+   first-come, same bases                   22.6  100.0%   98.6%
+   random, same bases (5)                   22.9   99.9%   98.6%
+V1 length-corrected             52.5%       17.4   99.2%   97.1%
+   first-come, same bases                   17.7   99.5%   95.6%
+   random, same bases (5)                   17.8   99.8%   96.1%
+V2 skip reads <1 kb             62.7%       21.2   99.2%   97.8%
+   first-come, same bases                   21.0   99.9%   97.9%
+   random, same bases (5)                   21.3  100.0%   98.3%
+V3 V1 + V2                      48.3%       16.1   99.1%   96.3%
+   first-come, same bases                   16.2   99.4%   93.5%
+   random, same bases (5)                   16.3   99.4%   92.6%
