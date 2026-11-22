@@ -56,12 +56,12 @@ nirai triage --paf online.paf -D 5 --gate decisions.tsv -o chosen.tsv   # redund
 **Next steps, in order.**
 1. Train on several runs (different organisms, flow cells and dates) that have pass and fail folders. Test each time on a run that was not used for training. Report the share of fail reads caught and the share of pass reads kept.
 2. Re-test median current (pA) as a feature. It is left out now because it moved the threshold on new runs (KPC2: 85% of pass reads kept instead of 95%; ladder: 8%), and it added only about 2 points of fail catch rate within the training run. Test two versions with leave-one-run-out on several runs: the absolute value, and a run-relative value (median pA minus the running median of earlier reads in the same run, which needs no labels). Add it back as an option only if it helps on most held-out runs. First result (train RDH275, test ladder and KPC2; `results/nirai_gate_median_pa_relative_test.txt`): the run-relative version fixes the threshold shift (ladder 99% of pass kept, KPC2 92%, against 5% and 84% for the absolute value) but adds little over leaving it out (ladder AUC 0.854 against 0.839; fail reads caught 47% against 49% at the training threshold; KPC2 pass kept 92% against 95%). Left out for now; repeat on more runs.
-3. Pick a threshold that keeps at least 95% of pass reads on a new run, and check that it stays stable.
-4. Split "fail" into its causes (low quality, blocked pore, adapter only) and see which ones the gate catches.
-5. Measure the saving on a full run: basecalling time and bases skipped, and check variant calls and assembly against basecalling everything.
-6. Add a directory-watching mode so the gate runs on POD5 files as the sequencer writes them.
-7. Add Read Until support so a failing read can be ejected from the pore after about 0.4 s (this also saves sequencing time; it needs a sequencer).
-8. Check the pass/fail quality threshold that MinKNOW uses for the kit in use, so our labels match.
+3. Find out the pass/fail quality threshold behind our labels, because the labels are only as meaningful as that threshold. Pass/fail is a cut on the basecalled read's mean Q-score (Dorado: reads below `--min-qscore` are written to `fail`; if the option is not set the default is 0 and every read passes; MinKNOW and Guppy defaults reported elsewhere are about 7 to 10 depending on the model). So a "fail" label depends on the settings used for each run. For each training and test run (RDH275, KPC2, ladder), find the threshold and basecaller used, and check it against the basecalled Q-scores of our own reads. If a run's labels are not usable, relabel from our Dorado Q-scores with one fixed threshold. Also note that no ONT source found so far describes a signal-only quality rejection: adaptive sampling in MinKNOW decides from basecalled bases (about the first 450) aligned to a reference.
+4. Pick a threshold that keeps at least 95% of pass reads on a new run, and check that it stays stable.
+5. Split "fail" into its causes (low quality, blocked pore, adapter only) and see which ones the gate catches.
+6. Measure the saving on a full run: basecalling time and bases skipped, and check variant calls and assembly against basecalling everything.
+7. Add a directory-watching mode so the gate runs on POD5 files as the sequencer writes them.
+8. Add Read Until support so a failing read can be ejected from the pore after about 0.4 s (this also saves sequencing time; it needs a sequencer).
 
 ### Gate details
 - [ ] Train on several runs and chemistry versions, and report held-out-run accuracy (RDH275 alone: AUC 0.95 at 0.4 s with files held out; trained on RDH275 and tested elsewhere: ladder AUC 0.85, see `results/nirai_gate_*`).
