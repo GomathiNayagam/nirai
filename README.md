@@ -37,7 +37,32 @@ nirai triage --paf online.paf -D 5 --gate decisions.tsv -o chosen.tsv   # redund
 
 ## To do
 
-Gate (pass/fail from signal)
+### Top priority: find likely-fail reads in real time
+
+**What and why.** Some reads are of low quality and end up in the "fail" folder. Today the sequencer decides pass or fail only after the read is basecalled, so the basecalling work is already spent and then thrown away. In the RDH275 run, fail reads were about 36% of all bases. If we can tell from the raw signal alone that a read is likely to fail, we can skip basecalling it. This needs no reference and no basecalls, and it works for any sample. It saves compute, energy and storage, which matters most on small machines in clinics and in space.
+
+**What we know so far.**
+- The signal of the first 0.4 seconds (about 160 bases) already shows if a read is likely to fail. It uses three simple numbers: how noisy the signal is, how spread out it is, and how many outlier samples it has.
+- On the training run (RDH275, files held out), the gate rejects about 80% of fail reads and keeps 95% of pass reads (AUC 0.946).
+- It is fast: about 330 reads per second on one CPU process, which is enough for a MinION. A PromethION would need several processes.
+- On other runs it rarely throws away good reads (95% to 99% of pass reads kept on KPC2, RDH275 other chunks, and the ladder). It catches fewer bad reads, though: only about 50% of fail reads on the ladder.
+- Median current is not used because it depends on the sample (its base composition) and broke the threshold on a new run.
+
+**What is not done.**
+- The model is trained on one run only. This is why the catch rate drops from about 80% to about 50% on a new run.
+- It works on recorded POD5 files, after each read has ended. It does not yet run live while the read is in the pore.
+- We have not measured how much basecalling it saves on a whole run, or whether skipped reads would have mattered for variant calls or assembly.
+
+**Next steps, in order.**
+1. Train on several runs (different organisms, flow cells and dates) that have pass and fail folders. Test each time on a run that was not used for training. Report the share of fail reads caught and the share of pass reads kept.
+2. Pick a threshold that keeps at least 95% of pass reads on a new run, and check that it stays stable.
+3. Split "fail" into its causes (low quality, blocked pore, adapter only) and see which ones the gate catches.
+4. Measure the saving on a full run: basecalling time and bases skipped, and check variant calls and assembly against basecalling everything.
+5. Add a directory-watching mode so the gate runs on POD5 files as the sequencer writes them.
+6. Add Read Until support so a failing read can be ejected from the pore after about 0.4 s (this also saves sequencing time; it needs a sequencer).
+7. Check the pass/fail quality threshold that MinKNOW uses for the kit in use, so our labels match.
+
+### Gate details
 - [ ] Train on several runs and chemistry versions, and report held-out-run accuracy (RDH275 alone: AUC 0.95 at 0.4 s with files held out; trained on RDH275 and tested elsewhere: ladder AUC 0.85, see `results/nirai_gate_*`).
 - [x] First cross-run test (train RDH275, test ladder pass/fail and KPC2 pass-only). Median pA does not transfer, so the gate uses sd, MAD of differences and outlier fraction. Result: KPC2 95% of pass kept, ladder 99% pass kept but only 50% of fail rejected (AUC 0.85).
 - [ ] Test on KPC2 or other runs that have a fail folder, and on a different flow cell type.
