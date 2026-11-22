@@ -1,0 +1,6 @@
+train 60000 reads (pass 40000), ladder 31795, KPC2 12000, RDH275-other 16000
+median pA of the first 0.4 s: RDH275 102.0 | ladder 148.5 | KPC2 96.0   (run-level shift is what breaks the absolute feature)
+no median (current default)          ladder AUC 0.839 | at training threshold: pass kept  99% fail rej  49% | re-set: fail rej  58% | pass kept KPC2  95% RDH275-other  95%
++ abs median pA                      ladder AUC 0.791 | at training threshold: pass kept   5% fail rej  96% | re-set: fail rej  54% | pass kept KPC2  84% RDH275-other  95%
++ run-relative median (causal)       ladder AUC 0.854 | at training threshold: pass kept  99% fail rej  47% | re-set: fail rej  63% | pass kept KPC2  92% RDH275-other  95%
++ whole-run-relative (upper bound)   ladder AUC 0.856 | at training threshold: pass kept  99% fail rej  47% | re-set: fail rej  62% | pass kept KPC2  92% RDH275-other  95%
