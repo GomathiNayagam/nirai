@@ -61,6 +61,7 @@ nirai triage --paf online.paf -D 5 --gate decisions.tsv -o chosen.tsv   # redund
 5. Add a directory-watching mode so the gate runs on POD5 files as the sequencer writes them.
 6. Add Read Until support so a failing read can be ejected from the pore after about 0.4 s (this also saves sequencing time; it needs a sequencer).
 7. Check the pass/fail quality threshold that MinKNOW uses for the kit in use, so our labels match.
+8. Re-test median current (pA) as a feature. It is left out now because it moved the threshold on new runs (KPC2: 85% of pass reads kept instead of 95%; ladder: 8%), and it added only about 2 points of fail catch rate within the training run. Test two versions with leave-one-run-out on several runs: the absolute value, and a run-relative value (median pA minus the running median of earlier reads in the same run, which needs no labels). Add it back as an option only if it helps on most held-out runs.
 
 ### Gate details
 - [ ] Train on several runs and chemistry versions, and report held-out-run accuracy (RDH275 alone: AUC 0.95 at 0.4 s with files held out; trained on RDH275 and tested elsewhere: ladder AUC 0.85, see `results/nirai_gate_*`).
