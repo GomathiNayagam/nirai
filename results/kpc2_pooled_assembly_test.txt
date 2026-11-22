@@ -1,3 +1,7 @@
 p3_all           reads  31222   271 Mb (47.8x) | contigs   4 total  5.68 Mb largest  5.40 Mb NG50  5.40 Mb | ref covered  95.3% | mismatch    0.0 ins    0.1 del    0.2 per 100kb aligned
 p3_tri10         reads  25831   190 Mb (33.5x) | contigs   4 total  5.66 Mb largest  5.40 Mb NG50  5.40 Mb | ref covered  95.3% | mismatch    0.0 ins    0.0 del    0.4 per 100kb aligned
 p3_tri10_rnd0    reads  21931   190 Mb (33.5x) | contigs   4 total  5.66 Mb largest  5.40 Mb NG50  5.40 Mb | ref covered  95.3% | mismatch    0.1 ins    0.6 del    0.5 per 100kb aligned
+p3_tri10_fc      reads  21288   190 Mb (33.5x) | contigs   4 total  5.68 Mb largest  5.40 Mb NG50  5.40 Mb | ref covered  95.3% | mismatch    0.2 ins    0.1 del    4.7 per 100kb aligned
+p3_tri8          reads  24546   170 Mb (29.9x) | contigs   5 total  5.72 Mb largest  5.40 Mb NG50  5.40 Mb | ref covered  95.3% | mismatch    0.1 ins    0.0 del    0.4 per 100kb aligned
+p3_tri8_rnd0     reads  19643   170 Mb (29.9x) | contigs   4 total  5.66 Mb largest  5.40 Mb NG50  5.40 Mb | ref covered  95.3% | mismatch    0.1 ins    0.1 del    0.5 per 100kb aligned
+p3_tri5          reads  22123   133 Mb (23.5x) | contigs  15 total  6.20 Mb largest  5.40 Mb NG50  5.40 Mb | ref covered  95.3% | mismatch    0.7 ins    0.4 del    0.8 per 100kb aligned

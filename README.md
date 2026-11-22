@@ -1,6 +1,6 @@
-# thusumbu
+# Nirai
 
-Pre-basecalling triage for nanopore sequencing: use only the raw signal (all-vs-all raw-signal overlaps, no basecalls, no reference) to decide which reads to basecall first, and when a region has enough reads, so that basecalling compute, energy and storage are spent where they add information. Aimed at low-resource settings (clinic laptops, space missions).
+**Nirai** (Tamil: fullness, sufficiency; developed within the thusumbu project). Pre-basecalling triage for nanopore sequencing: use only the raw signal (all-vs-all raw-signal overlaps, no basecalls, no reference) to decide which reads to basecall first, and when a region has enough reads, so that basecalling compute, energy and storage are spent where they add information. Aimed at low-resource settings (clinic laptops, space missions).
 
 Scope: ONT R10.4.1 chemistry (5 kHz, 400 bps) and newer. Status: research prototype, not a released tool.
 
