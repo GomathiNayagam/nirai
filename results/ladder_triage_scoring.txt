@@ -1,0 +1,22 @@
+basecalled reads: 60109 of 60000 in the stream
+types (components with >=3 reads in the 1,500 sample): 2; reads in them 1493 of 1504
+reads assigned to a type (read >=80% aligned): 10082 of 60109 (17%)
+reads covering >=80% of their type representative: 9917 (16%)
+type sizes (full-length reads, whole stream): T0:9436, T1:481
+
+ALL reads: all                          100.0% bases 100.0% reads 
+
+== D=3 ==
+NIRAI triage                  15.4% bases  53.2% reads | types with >=1 / >=3 / >=D(3) full-length reads: 100.0% / 100.0% / 100.0%  (of 2 types with >=D in the full stream)
+first-come, same bases        15.4% bases  20.5% reads | types with >=1 / >=3 / >=D(3) full-length reads: 100.0% / 100.0% / 100.0%  (of 2 types with >=D in the full stream)
+random, same bases (mean of 5)  15.4% bases | types with >=1 / >=3 / >=D(3) full-length reads: 100.0% / 100.0% / 100.0%
+
+== D=5 ==
+NIRAI triage                  16.7% bases  55.6% reads | types with >=1 / >=3 / >=D(5) full-length reads: 100.0% / 100.0% / 100.0%  (of 2 types with >=D in the full stream)
+first-come, same bases        16.7% bases  21.1% reads | types with >=1 / >=3 / >=D(5) full-length reads: 100.0% / 100.0% / 100.0%  (of 2 types with >=D in the full stream)
+random, same bases (mean of 5)  16.7% bases | types with >=1 / >=3 / >=D(5) full-length reads: 100.0% / 100.0% / 100.0%
+
+== D=10 ==
+NIRAI triage                  19.7% bases  61.1% reads | types with >=1 / >=3 / >=D(10) full-length reads: 100.0% / 100.0% / 100.0%  (of 2 types with >=D in the full stream)
+first-come, same bases        19.7% bases  23.6% reads | types with >=1 / >=3 / >=D(10) full-length reads: 100.0% / 100.0% / 100.0%  (of 2 types with >=D in the full stream)
+random, same bases (mean of 5)  19.7% bases | types with >=1 / >=3 / >=D(10) full-length reads: 100.0% / 100.0% / 100.0%

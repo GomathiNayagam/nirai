@@ -1,0 +1,4 @@
+prefix 3000 samples (0.6 s); low = mean Q < 10.0; reads 92341; low share: ECOLI_ATCC25922 11.0%, KPC2_FAV69578 4.2%, KPC2_FAX39616 1.1%, KPC2_FAX39617 0.9%, KPC2_FAX76295 0.7%, LADDER_Oct 0.2%, RDH275 2.5%, ZYMO 0.8%
+
+held-out run (kit)      strategy     train n    AUC  good kept  low caught  low caught @95% kept on this run
+RDH275 (NBD)            pooled+kit     55594  0.891        98%         36%                               59%

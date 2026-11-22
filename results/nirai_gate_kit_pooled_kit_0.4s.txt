@@ -1,0 +1,12 @@
+prefix 2000 samples (0.4 s); low = mean Q < 10.0; reads 92341; low share: ECOLI_ATCC25922 11.0%, KPC2_FAV69578 4.2%, KPC2_FAX39616 1.1%, KPC2_FAX39617 0.9%, KPC2_FAX76295 0.7%, LADDER_Oct 0.2%, RDH275 2.5%, ZYMO 0.8%
+
+held-out run (kit)      strategy     train n    AUC  good kept  low caught  low caught @95% kept on this run
+RDH275 (NBD)            pooled+kit     55594  0.854        98%         26%                               53%
+KPC2_FAX39616 (NBD)     pooled+kit     55526  0.865        92%         64%                               51%
+KPC2_FAX39617 (NBD)     pooled+kit     56104  0.884        97%         42%                               56%
+KPC2_FAX76295 (NBD)     pooled+kit     55118  0.806        90%         48%                               36%
+ECOLI_ATCC25922 (NBD)   pooled+kit     37167  0.813        95%         38%                               36%
+KPC2_FAV69578 (RBK)     pooled+kit     55569  0.644        60%         65%                                9%
+
+mean over held-out runs:
+  pooled+kit   AUC 0.811  good kept 89%  low caught 47%  (own-run threshold: 40%)   [6 runs]
