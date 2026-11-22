@@ -7,3 +7,5 @@ __pycache__/
 *.fq
 *.paf
 *.gfa
+*.egg-info/
+*.joblib

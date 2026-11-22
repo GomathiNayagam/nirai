@@ -21,6 +21,46 @@ All numbers are from `results/`. Variant calling uses minimap2 + bcftools (a gen
 - Signal-only assembly graphs (miniasm on Rawsamble overlaps) cover less of the genome than basecalled same-strand overlaps, which cover less than both strands (`*_signal_assembly_test.txt`).
 - A signal-noise quality gate showed no downstream benefit (`triage_quality_r10.txt`, variant files).
 
+## Install and use
+
+```
+pip install -e .            # needs numpy pandas scikit-learn pod5 joblib
+nirai train-gate --pass-dir PASS_POD5_DIR --fail-dir FAIL_POD5_DIR --prefix 0.4s -o gate.joblib
+nirai gate --model gate.joblib reads/*.pod5 -o decisions.tsv        # basecall or skip each read, from the first 0.4 s of signal
+nirai triage --paf online.paf -D 5 --gate decisions.tsv -o chosen.tsv   # redundancy rule on Rawsamble/RawHash2 --online overlaps
+```
+
+- **Gate:** classifies a read as likely pass or fail from signal features of its first 0.4 to 4 s (no basecalls, no reference). Train it on pass/fail folders of a run with known labels. The saved threshold keeps 95% of held-out pass reads.
+- **Triage:** causal redundancy rule (see Idea). Input is the PAF from `rawhash2 -x ava-sensitive --r10 --online`, reads in arrival order. A gate file makes reads marked `skip` ineligible.
+- The gate and triage are software steps on recorded POD5 files. Ejecting a read while it is in the pore needs the sequencer's Read Until interface and is not implemented.
+- The package reproduces the replay rule used in `scripts/`; `tests/` has unit tests (`pytest`).
+
+## To do
+
+Gate (pass/fail from signal)
+- [ ] Train on several runs and chemistry versions, and report held-out-run accuracy (so far one run, RDH275: AUC 0.95 at 0.4 s with files held out).
+- [ ] Test the gate across runs: train on RDH275, test on the ladder and KPC2 pass/fail folders.
+- [ ] Separate causes of fail (low quality, blocked pore, adapter-only) and report accuracy per cause.
+- [ ] Measure how much basecalling the gate saves on a whole run, and whether it removes any reads that matter downstream (variant calls, assembly).
+- [ ] Check the pass/fail threshold definition used by MinKNOW for the kit version in use.
+- [ ] Apply the proper offset in the picoampere conversion and retrain (the experiments used scale only).
+
+Redundancy triage
+- [ ] Improve overlap sensitivity for reads under 3 kb and noisy reads (largest measured gap to the oracle: Nirai captures about a quarter of the oracle saving on KPC2, and is worse than first-come on RDH275).
+- [ ] Find out why RDH275 is worse than first-come (short or unmapped reads selected?); test the gate in front of the triage.
+- [ ] Calibrate the depth estimate (about 0.7x the true same-strand depth on KPC2) and turn it into a stopping rule.
+- [ ] Index growth and a rule for when to stop adding reads to the index (open problem named in the Rawsamble paper).
+- [ ] Ladder test with a reference-free evaluation (basecalls of all reads as scoring truth; Nirai never sees them).
+- [ ] RDH275 variant-calling test with frozen parameters.
+- [ ] Reverse-strand overlaps (measured gain is small: same-strand and both-strand oracles differ by 0.6 to 1.8 points).
+
+System
+- [ ] Measure wall-clock time and energy on low-resource hardware (no measurements yet).
+- [ ] Directory-watching interface for live POD5 output.
+- [ ] Read Until integration for mid-read rejection.
+- [ ] Pooled and multi-isolate benchmark and a second variant caller (only bcftools so far).
+- [ ] Add a LICENSE.
+
 ## Limits
 
 - Rawsamble overlaps same-strand reads only, so overlap depth is about half of total depth.
@@ -29,6 +69,7 @@ All numbers are from `results/`. Variant calling uses minimap2 + bcftools (a gen
 
 ## Layout
 
+- `nirai/` the package (gate, triage, CLI); `tests/`
 - `scripts/` experiment code (paths are absolute and point to the author's machine; set `KROOT` and edit `P`/`REF` constants to rerun).
 - `results/` plain-text outputs quoted above.
 
