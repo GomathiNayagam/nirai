@@ -1,0 +1,43 @@
+history 3711 reads (2479 with truth position); query 3711 reads, 2235 with truth position
+
+=== prefix 2500 samples = 0.5 s = ~200 bases; truth depth = same-strand earlier reads covering the prefix region ===
+query reads 2235: truth depth 0: 4%  1-2: 35%  >=3: 61%
+reads with >=1 hit: 0%; hit precision (hits that truly overlap): 0%
+reject if hits>=  rejected | catch d>=3 wrong d=0 wrong d=1-2 | seq time saved
+               1        0% |         0%        0%          0% |             0%
+               2        0% |         0%        0%          0% |             0%
+               3        0% |         0%        0%          0% |             0%
+
+=== prefix 5000 samples = 1.0 s = ~400 bases; truth depth = same-strand earlier reads covering the prefix region ===
+query reads 2235: truth depth 0: 4%  1-2: 36%  >=3: 60%
+reads with >=1 hit: 0%; hit precision (hits that truly overlap): 100%
+reject if hits>=  rejected | catch d>=3 wrong d=0 wrong d=1-2 | seq time saved
+               1        0% |         0%        0%          0% |             1%
+               2        0% |         0%        0%          0% |             0%
+               3        0% |         0%        0%          0% |             0%
+
+=== prefix 10000 samples = 2.0 s = ~800 bases; truth depth = same-strand earlier reads covering the prefix region ===
+query reads 2235: truth depth 0: 4%  1-2: 36%  >=3: 60%
+reads with >=1 hit: 10%; hit precision (hits that truly overlap): 87%
+reject if hits>=  rejected | catch d>=3 wrong d=0 wrong d=1-2 | seq time saved
+               1       10% |        12%        1%          7% |             9%
+               2        1% |         2%        1%          0% |             1%
+               3        0% |         0%        0%          0% |             0%
+######## looser chaining ########
+history 3711 reads (2479 with truth position); query 3711 reads, 2235 with truth position
+
+=== prefix 5000 samples = 1.0 s = ~400 bases; truth depth = same-strand earlier reads covering the prefix region ===
+query reads 2235: truth depth 0: 4%  1-2: 36%  >=3: 60%
+reads with >=1 hit: 11%; hit precision (hits that truly overlap): 78%
+reject if hits>=  rejected | catch d>=3 wrong d=0 wrong d=1-2 | seq time saved
+               1       11% |        12%        2%         10% |            11%
+               2        0% |         0%        0%          0% |             0%
+               3        0% |         0%        0%          0% |             0%
+
+=== prefix 10000 samples = 2.0 s = ~800 bases; truth depth = same-strand earlier reads covering the prefix region ===
+query reads 2235: truth depth 0: 4%  1-2: 36%  >=3: 60%
+reads with >=1 hit: 33%; hit precision (hits that truly overlap): 89%
+reject if hits>=  rejected | catch d>=3 wrong d=0 wrong d=1-2 | seq time saved
+               1       33% |        38%        4%         27% |            33%
+               2        1% |         2%        1%          0% |             1%
+               3        0% |         0%        0%          0% |             0%

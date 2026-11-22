@@ -1,0 +1,35 @@
+reads: 52060 channels: 512
+
+TIME hold-out (leave one contiguous time block out; model trained on the other 4)
+       block     n   all    rho  quiet25  bases  model25  rho_m
+time block 1 10412 4.758 -0.348    2.082 30.309    1.843  0.366
+time block 2 10412 3.460 -0.356    1.754 18.717    1.648  0.374
+time block 3 10412 2.895 -0.354    2.015 25.530    1.710  0.417
+time block 4 10412 2.691 -0.361    1.873 23.683    1.664  0.389
+time block 5 10412 5.809 -0.441    2.313 24.435    1.678  0.497
+  mean: rho -0.372  all-reads err 3.92%  quiet25 err 2.01%  model25 err 1.71% (rho_m +0.409)
+
+TIME forward-only (train on EARLIER reads only, test on the next block)
+                     block     n   all    rho  quiet25  bases  model25  rho_m
+train blocks 1-1 -> test 2 10412 3.460 -0.356    1.754 18.717    1.642  0.374
+train blocks 1-2 -> test 3 10412 2.895 -0.354    2.015 25.530    1.770  0.413
+train blocks 1-3 -> test 4 10412 2.691 -0.361    1.873 23.683    1.700  0.393
+train blocks 1-4 -> test 5 10412 5.809 -0.441    2.313 24.435    1.678  0.497
+  mean: rho -0.378  all-reads err 3.71%  quiet25 err 1.99%  model25 err 1.70% (rho_m +0.419)
+
+CHANNEL hold-out (5 folds of 102 random channels; model trained on the other channels only)
+         block     n   all    rho  quiet25  bases  model25  rho_m
+channel fold 1 10443 3.429 -0.374    1.882 30.452    1.689  0.403
+channel fold 2  9962 3.431 -0.386    1.842 28.955    1.743  0.409
+channel fold 3 10239 3.955 -0.359    2.416 26.309    1.691  0.420
+channel fold 4 10716 3.472 -0.395    1.807 31.164    1.625  0.439
+channel fold 5 10700 3.246 -0.367    2.005 29.408    1.745  0.391
+  mean: rho -0.376  all-reads err 3.51%  quiet25 err 1.99%  model25 err 1.70% (rho_m +0.412)
+
+BOTH at once (train: first 60% of time on channel folds 1-3; test: last 20% of time on channel folds 4-5)
+   block    n   all    rho  quiet25  bases  model25  rho_m
+combined 4125 5.562 -0.433    2.113 23.749    1.716  0.466
+  mean: rho -0.433  all-reads err 5.56%  quiet25 err 2.11%  model25 err 1.72% (rho_m +0.466)
+
+channel-level (channels with >=40 reads, n=500): Spearman(channel median noise, channel median identity) -0.412
+within-channel: Spearman(noise, identity) -0.376 ; after dividing noise by channel median -0.351

@@ -1,0 +1,6 @@
+true same-strand overlap length (bases) | pairs | found by Rawsamble
+   300-   600 |    106483 |   1.1%
+   600-  1000 |     56526 |   7.8%
+  1000-  2000 |     37515 |  30.2%
+  2000-  5000 |     18080 |  60.6%
+  5000-   inf |      6725 |  75.2%

@@ -1,0 +1,22 @@
+stream 60000 reads; predictor out-of-fold Spearman with true identity +0.410
+all-reads error 3.49%  (base-weighted)
+
+=== goal: genome covered at >= 1x by chosen reads.  best (fewest bases) setting reaching the goal, per quality gate Q  [Q=0 is triage without quality]
+  goal 90%:  Q=0.0:  42.7% bases, error  4.44%  |  Q=0.3:  29.1% bases, error  2.20%  |  Q=0.5:  22.6% bases, error  1.97%  |  Q=0.7:  15.6% bases, error  1.78%
+  goal 95%:  Q=0.0:  42.7% bases, error  4.44%  |  Q=0.3:  29.1% bases, error  2.20%  |  Q=0.5:  22.6% bases, error  1.97%  |  Q=0.7:  17.4% bases, error  1.79%
+
+=== goal: genome covered at >= 2x by chosen reads.  best (fewest bases) setting reaching the goal, per quality gate Q  [Q=0 is triage without quality]
+  goal 90%:  Q=0.0:  42.7% bases, error  4.44%  |  Q=0.3:  29.1% bases, error  2.20%  |  Q=0.5:  25.1% bases, error  1.96%  |  Q=0.7: not reached
+  goal 95%:  Q=0.0:  42.7% bases, error  4.44%  |  Q=0.3:  29.1% bases, error  2.20%  |  Q=0.5:  27.8% bases, error  1.95%  |  Q=0.7: not reached
+
+=== goal: genome covered at >= 5x by chosen reads.  best (fewest bases) setting reaching the goal, per quality gate Q  [Q=0 is triage without quality]
+  goal 90%:  Q=0.0:  51.2% bases, error  4.28%  |  Q=0.3:  49.3% bases, error  2.12%  |  Q=0.5: not reached  |  Q=0.7: not reached
+  goal 95%:  Q=0.0:  58.1% bases, error  4.09%  |  Q=0.3: not reached  |  Q=0.5: not reached  |  Q=0.7: not reached
+
+=== BASELINES (no overlap logic): same goals.  'gate only' = random reads among those with predicted quality >= Q;  first-come = stream prefix
+  >= 1x on 90%:  gate Q=0.0:  16.0% bases, error  3.46%  |  gate Q=0.3:  17.6% bases, error  2.27%  |  gate Q=0.5:  18.5% bases, error  2.13%  |  gate Q=0.7:  19.3% bases, error  2.01%  |  first-come:  15.2%,  4.55%
+  >= 1x on 95%:  gate Q=0.0:  21.8% bases, error  3.64%  |  gate Q=0.3:  22.6% bases, error  2.23%  |  gate Q=0.5:  23.4% bases, error  2.09%  |  gate Q=0.7:  25.1% bases, error  2.00%  |  first-come:  19.3%,  4.19%
+  >= 2x on 90%:  gate Q=0.0:  28.4% bases, error  3.50%  |  gate Q=0.3:  30.0% bases, error  2.22%  |  gate Q=0.5:  30.8% bases, error  2.10%  |  gate Q=0.7: not reached  |  first-come:  26.7%,  4.08%
+  >= 2x on 95%:  gate Q=0.0:  34.9% bases, error  3.50%  |  gate Q=0.3:  37.4% bases, error  2.24%  |  gate Q=0.5:  39.1% bases, error  2.12%  |  gate Q=0.7: not reached  |  first-come:  34.1%,  3.78%
+  >= 5x on 90%:  gate Q=0.0:  58.0% bases, error  3.53%  |  gate Q=0.3:  62.1% bases, error  2.23%  |  gate Q=0.5: not reached  |  gate Q=0.7: not reached  |  first-come:  58.8%,  3.47%
+  >= 5x on 95%:  gate Q=0.0:  67.9% bases, error  3.52%  |  gate Q=0.3: not reached  |  gate Q=0.5: not reached  |  gate Q=0.7: not reached  |  first-come:  67.9%,  3.40%

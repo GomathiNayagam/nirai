@@ -1,0 +1,43 @@
+reads with signal features: 60000 | with primary alignment: 52811
+
+By noise quintile (mad_diff):
+                  n  mapped  median_len  mean_ident  err_%
+q                                                        
+Q1 quietest  14440   0.879       739.0       0.980  1.977
+Q2           15287   0.885       629.0       0.977  2.326
+Q3            9527   0.965       501.0       0.977  2.269
+Q4            9780   0.848      1540.0       0.967  3.302
+Q5 noisiest  10966   0.762       551.0       0.909  9.093
+
+analysed reads (mapq>=20): 52060
+Spearman noise vs identity: -0.376   (rel noise mad/sd: -0.341)   length vs identity: -0.119   noise vs length: -0.021
+
+Spearman noise vs identity WITHIN length quintiles (controls length):
+  len (62.999, 338.0]    n=10436  -0.286
+  len (338.0, 533.0]     n=10427  -0.365
+  len (533.0, 864.0]     n=10390  -0.383
+  len (864.0, 1899.0]    n=10417  -0.451
+  len (1899.0, 133711.0] n=10390  -0.462
+
+HELD-OUT second half (26030 reads, 43.7 Mb). Budget = fraction of READS basecalled; columns: % of all bases basecalled / error % / % of chosen bases from reads >=98% identity
+all reads: error 3.56%
+ budget 10% of reads
+   random     bases  10.1%  error  3.60%  good-read share  51.5%
+   longest    bases  51.6%  error  3.83%  good-read share  51.7%
+   quietest   bases   7.0%  error  2.29%  good-read share  71.9%
+   combo=0.5  bases  28.4%  error  2.01%  good-read share  70.8%
+   combo=0.7  bases  24.4%  error  2.02%  good-read share  72.2%
+ budget 25% of reads
+   random     bases  25.0%  error  3.55%  good-read share  51.2%
+   longest    bases  72.3%  error  3.75%  good-read share  50.2%
+   quietest   bases  25.8%  error  1.99%  good-read share  70.3%
+   combo=0.5  bases  47.8%  error  2.26%  good-read share  65.4%
+   combo=0.7  bases  35.9%  error  2.12%  good-read share  69.6%
+ budget 50% of reads
+   random     bases  50.2%  error  3.57%  good-read share  51.1%
+   longest    bases  87.7%  error  3.67%  good-read share  50.8%
+   quietest   bases  46.6%  error  2.19%  good-read share  67.5%
+   combo=0.5  bases  79.9%  error  2.77%  good-read share  56.2%
+   combo=0.7  bases  60.9%  error  2.24%  good-read share  64.2%
+
+bootstrap 95% CI: Spearman(noise,identity) on held-out half [-0.404, -0.383]; error reduction of quietest 25% vs all reads [1.42, 1.73] points

@@ -1,0 +1,21 @@
+reads 60000; with alignment 46243; mean read 1717 b; median 658 b; max 133711
+
+=== goal: >= 5x depth on X% of genome; bases needed (% of all bases)
+policy                          90%      95%      99%
+first-come                     59.1     67.5     88.0
+random                         56.7     67.5     86.8
+longest-first (offline)        53.1     66.3     89.2
+shortest-first                 60.3     68.7     88.0
+TRIAGE (real overlaps)         58.1     58.1     77.2
+ORACLE same-strand             37.2     42.2     48.8
+ORACLE both strands            35.4     38.1     43.8
+
+=== goal: >= 10x depth on X% of genome; bases needed (% of all bases)
+policy                          90%      95%      99%
+first-come                      nan      nan      nan
+random                          nan      nan      nan
+longest-first (offline)         nan      nan      nan
+shortest-first                  nan      nan      nan
+TRIAGE (real overlaps)          nan      nan      nan
+ORACLE same-strand              nan      nan      nan
+ORACLE both strands             nan      nan      nan

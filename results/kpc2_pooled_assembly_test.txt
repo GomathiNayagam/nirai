@@ -1,0 +1,3 @@
+p3_all           reads  31222   271 Mb (47.8x) | contigs   4 total  5.68 Mb largest  5.40 Mb NG50  5.40 Mb | ref covered  95.3% | mismatch    0.0 ins    0.1 del    0.2 per 100kb aligned
+p3_tri10         reads  25831   190 Mb (33.5x) | contigs   4 total  5.66 Mb largest  5.40 Mb NG50  5.40 Mb | ref covered  95.3% | mismatch    0.0 ins    0.0 del    0.4 per 100kb aligned
+p3_tri10_rnd0    reads  21931   190 Mb (33.5x) | contigs   4 total  5.66 Mb largest  5.40 Mb NG50  5.40 Mb | ref covered  95.3% | mismatch    0.1 ins    0.6 del    0.5 per 100kb aligned

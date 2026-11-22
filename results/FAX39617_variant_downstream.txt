@@ -1,0 +1,22 @@
+7959 of the first 8000 reads are basecalled
+ALL reads (basecall everything)          48.4 Mb  depth   7.9x | SNP P  99.99 R  98.63 F1  99.31 | indel F1  82.43
+TRIAGE D=3 Q=0.0                         38.3 Mb  depth   6.1x | SNP P 100.00 R  97.69 F1  98.83 | indel F1  79.60
+  first-come, same bases                 38.3 Mb  depth   6.2x | SNP P  99.99 R  95.52 F1  97.70 | indel F1  80.40
+  random, same bases (mean of 3)         38.3 Mb  depth   6.2x | SNP P  99.98 R  94.72 F1  97.28 | indel F1  76.80
+TRIAGE D=3 Q=0.3                         28.7 Mb  depth   4.6x | SNP P  99.96 R  88.13 F1  93.68 | indel F1  75.18
+  first-come, same bases                 28.7 Mb  depth   4.7x | SNP P  99.90 R  87.18 F1  93.11 | indel F1  73.87
+  random, same bases (mean of 3)         28.7 Mb  depth   4.7x | SNP P  99.97 R  86.27 F1  92.61 | indel F1  70.89
+  gate-only random, same bases (mean of 3)   28.7 Mb  depth   4.6x | SNP P  99.93 R  83.73 F1  91.12 | indel F1  73.61
+TRIAGE D=5 Q=0.0                         44.3 Mb  depth   7.2x | SNP P  99.99 R  98.27 F1  99.13 | indel F1  82.74
+  first-come, same bases                 44.3 Mb  depth   7.2x | SNP P  99.99 R  98.06 F1  99.02 | indel F1  82.47
+  random, same bases (mean of 3)         44.3 Mb  depth   7.2x | SNP P  99.99 R  97.53 F1  98.75 | indel F1  80.68
+TRIAGE D=5 Q=0.3                         31.7 Mb  depth   5.1x | SNP P  99.96 R  88.86 F1  94.08 | indel F1  76.98
+  first-come, same bases                 31.7 Mb  depth   5.2x | SNP P  99.91 R  90.77 F1  95.12 | indel F1  76.98
+  random, same bases (mean of 3)         31.7 Mb  depth   5.1x | SNP P  99.97 R  89.29 F1  94.32 | indel F1  71.72
+  gate-only random, same bases (mean of 3)   31.7 Mb  depth   5.1x | SNP P  99.99 R  89.00 F1  94.17 | indel F1  74.51
+
+-- depth ladder: random subsets of all reads at fixed fractions (3 draws each) --
+random 20% of bases                       9.7 Mb  depth   1.6x | SNP P  99.76 R  21.85 F1  35.81 | indel F1  17.75
+random 35% of bases                      16.9 Mb  depth   2.7x | SNP P  99.95 R  54.92 F1  70.85 | indel F1  48.17
+random 50% of bases                      24.2 Mb  depth   3.9x | SNP P  99.93 R  75.22 F1  85.83 | indel F1  62.05
+random 75% of bases                      36.3 Mb  depth   5.9x | SNP P  99.99 R  93.43 F1  96.60 | indel F1  76.26

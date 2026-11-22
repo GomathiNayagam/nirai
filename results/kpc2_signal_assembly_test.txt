@@ -1,0 +1,17 @@
+signal PAF unit scale vs n_samples*0.08: 1.124
+    N  depth arm       overlaps unitigs reads in  genome  longest     NG50 chimeric
+ 1000   1.8x SIGNAL        6003       1       0%      3%     158k       0k     100%
+ 1000   1.8x BC_FWD        1097       0       0%      0%       0k       0k       0%
+ 1000   1.8x BC_BOTH       2259       0       0%      0%       0k       0k       0%
+ 2000   3.5x SIGNAL        8340       2       0%      3%     158k       0k     100%
+ 2000   3.5x BC_FWD        4148       0       0%      0%       0k       0k       0%
+ 2000   3.5x BC_BOTH       8426       2       1%      3%      88k       0k     100%
+ 4000   6.8x SIGNAL       14192       3       0%      3%     158k       0k      67%
+ 4000   6.8x BC_FWD       15863       4       1%      6%     118k       0k      25%
+ 4000   6.8x BC_BOTH      31739      14       3%     30%     314k       0k      21%
+ 6000   9.8x SIGNAL       22782      11       1%      9%     132k       0k      45%
+ 6000   9.8x BC_FWD       34848      12       1%     18%     159k       0k      17%
+ 6000   9.8x BC_BOTH      70191      19       4%     67%     741k     168k      26%
+ 7979  12.8x SIGNAL       33456      23       2%     27%     158k       0k      30%
+ 7979  12.8x BC_FWD       59644      23       2%     42%     365k      91k      22%
+ 7979  12.8x BC_BOTH     119855      13       4%     90%    1162k     772k      31%
