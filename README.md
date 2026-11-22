@@ -30,7 +30,7 @@ nirai gate --model gate.joblib reads/*.pod5 -o decisions.tsv        # basecall o
 nirai triage --paf online.paf -D 5 --gate decisions.tsv -o chosen.tsv   # redundancy rule on Rawsamble/RawHash2 --online overlaps
 ```
 
-- **Gate:** classifies a read as likely pass or fail from signal features of its first 0.4 to 4 s (no basecalls, no reference). Train it on pass/fail folders of a run with known labels. The saved threshold keeps 95% of held-out pass reads.
+- **Gate:** classifies a read as likely pass or fail from signal features (noise level, signal spread, outlier fraction) of its first 0.4 to 4 s (no basecalls, no reference). Train it on pass/fail folders of a run with known labels. The saved threshold keeps 95% of held-out pass reads.
 - **Triage:** causal redundancy rule (see Idea). Input is the PAF from `rawhash2 -x ava-sensitive --r10 --online`, reads in arrival order. A gate file makes reads marked `skip` ineligible.
 - The gate and triage are software steps on recorded POD5 files. Ejecting a read while it is in the pore needs the sequencer's Read Until interface and is not implemented.
 - The package reproduces the replay rule used in `scripts/`; `tests/` has unit tests (`pytest`).
@@ -38,8 +38,9 @@ nirai triage --paf online.paf -D 5 --gate decisions.tsv -o chosen.tsv   # redund
 ## To do
 
 Gate (pass/fail from signal)
-- [ ] Train on several runs and chemistry versions, and report held-out-run accuracy (so far one run, RDH275: AUC 0.95 at 0.4 s with files held out).
-- [ ] Test the gate across runs: train on RDH275, test on the ladder and KPC2 pass/fail folders.
+- [ ] Train on several runs and chemistry versions, and report held-out-run accuracy (RDH275 alone: AUC 0.95 at 0.4 s with files held out; trained on RDH275 and tested elsewhere: ladder AUC 0.85, see `results/nirai_gate_*`).
+- [x] First cross-run test (train RDH275, test ladder pass/fail and KPC2 pass-only). Median pA does not transfer, so the gate uses sd, MAD of differences and outlier fraction. Result: KPC2 95% of pass kept, ladder 99% pass kept but only 50% of fail rejected (AUC 0.85).
+- [ ] Test on KPC2 or other runs that have a fail folder, and on a different flow cell type.
 - [ ] Separate causes of fail (low quality, blocked pore, adapter-only) and report accuracy per cause.
 - [ ] Measure how much basecalling the gate saves on a whole run, and whether it removes any reads that matter downstream (variant calls, assembly).
 - [ ] Check the pass/fail threshold definition used by MinKNOW for the kit version in use.

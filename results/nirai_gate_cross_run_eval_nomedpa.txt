@@ -1,0 +1,12 @@
+model: prefix 0.4s, threshold 0.488, trained on 40000 pass / 20000 fail reads from 15 files; its CV: AUC 0.946
+
+ladder: 16000 pass reads (4 files), 16000 fail reads (4 files); median length pass 6786 fail 7206 samples
+  reads with >= prefix of signal (pass): 100%
+  reads with >= prefix of signal (fail): 99%
+  AUC pass vs fail: 0.846
+  (a) saved threshold 0.488: pass kept 99%, fail rejected 50%
+  (b) threshold re-set on ladder labels for 95% pass kept (0.819): fail rejected 59%
+
+KPC2 (pass-only, 12000 reads with enough signal): pass kept at saved threshold 95%  (expected ~95% if the model transfers)
+
+RDH275_other_chunks (pass-only, 16000 reads with enough signal): pass kept at saved threshold 95%  (expected ~95% if the model transfers)

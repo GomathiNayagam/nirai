@@ -1,0 +1,4 @@
+all four        ladder AUC 0.837 | ladder at training threshold: pass kept   8% fail rej  95% | re-set threshold: fail rej  64% | pass kept KPC2  85% RDH275-other  95%
+without med_pa  ladder AUC 0.846 | ladder at training threshold: pass kept  99% fail rej  50% | re-set threshold: fail rej  59% | pass kept KPC2  95% RDH275-other  95%
+mad_diff only   ladder AUC 0.775 | ladder at training threshold: pass kept 100% fail rej  48% | re-set threshold: fail rej  48% | pass kept KPC2  97% RDH275-other  97%
+sd + mad_diff   ladder AUC 0.844 | ladder at training threshold: pass kept  99% fail rej  50% | re-set threshold: fail rej  59% | pass kept KPC2  95% RDH275-other  95%

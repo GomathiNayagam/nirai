@@ -2,18 +2,18 @@
 import numpy as np
 
 SAMPLE_RATE = 5000                      # R10.4.1 default (Hz)
-FEATURES = ("sd", "mad_diff", "med_pa", "frac_hi")
+FEATURES = ("sd", "mad_diff", "frac_hi")    # median pA is deliberately left out: it depends on the sample and did not transfer across runs
 PREFIXES = {"0.4s": 2000, "0.8s": 4000, "2s": 10000, "4s": 20000}   # samples at 5 kHz
 MIN_SAMPLES = 300
 
 
 def signal_features(x):
-    """sd, MAD of sample-to-sample differences, median, fraction of samples further than 4 sd from the median."""
+    """sd, MAD of sample-to-sample differences, fraction of samples further than 4 sd from the median."""
     d = np.diff(x)
     mad = float(np.median(np.abs(d - np.median(d))))
     med = float(np.median(x))
     sd = float(x.std())
-    return [sd, mad, med, float((np.abs(x - med) > 4 * sd).mean())]
+    return [sd, mad, float((np.abs(x - med) > 4 * sd).mean())]
 
 
 def read_pa(rec):
