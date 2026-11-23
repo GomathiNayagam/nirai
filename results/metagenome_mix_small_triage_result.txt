@@ -1,0 +1,34 @@
+21500 reads in the PAF stream; sources: ECOLI 1500, KPC2 12000, RDH275 8000
+reads with a reference span: {'KPC2': 8610, 'RDH275': 4261, 'ECOLI': 1218}
+
+ALL reads                          100.0% of bases | KPC2 kept  100% depth  17.6x >=5x 100% >=10x  95% | RDH275 kept  100% depth   7.8x >=5x  87% >=10x  28% | ECOLI kept  100% depth   0.7x >=5x   0% >=10x   0% |
+
+-- D=5 original --
+triage D=5 original                 78.0% of bases | KPC2 kept   75% depth  12.8x >=5x 100% >=10x  88% | RDH275 kept   90% depth   7.0x >=5x  83% >=10x  16% | ECOLI kept   99% depth   0.7x >=5x   0% >=10x   0% |
+  first-come, same bases            78.1% of bases | KPC2 kept   77% depth  13.5x >=5x  99% >=10x  82% | RDH275 kept   79% depth   6.1x >=5x  72% >=10x  11% | ECOLI kept   95% depth   0.6x >=5x   0% >=10x   0% |
+  random, same bases (draw 1 of 5)  78.1% of bases | KPC2 kept   78% depth  13.9x >=5x  99% >=10x  84% | RDH275 kept   79% depth   6.2x >=5x  71% >=10x  12% | ECOLI kept   73% depth   0.5x >=5x   0% >=10x   0% |
+
+-- D=5 policy --
+triage D=5 policy                   67.8% of bases | KPC2 kept   65% depth  10.8x >=5x 100% >=10x  71% | RDH275 kept   75% depth   5.7x >=5x  71% >=10x   5% | ECOLI kept   98% depth   0.7x >=5x   0% >=10x   0% |
+  first-come, same bases            67.8% of bases | KPC2 kept   67% depth  11.7x >=5x  98% >=10x  68% | RDH275 kept   70% depth   5.4x >=5x  61% >=10x   7% | ECOLI kept   85% depth   0.6x >=5x   0% >=10x   0% |
+  random, same bases (draw 1 of 5)  67.8% of bases | KPC2 kept   68% depth  12.0x >=5x  99% >=10x  73% | RDH275 kept   67% depth   5.3x >=5x  61% >=10x   6% | ECOLI kept   64% depth   0.5x >=5x   0% >=10x   0% |
+
+-- D=5 policy + drop <1kb --
+triage D=5 policy + drop <1kb       64.9% of bases | KPC2 kept   64% depth  10.6x >=5x 100% >=10x  69% | RDH275 kept   66% depth   5.2x >=5x  62% >=10x   3% | ECOLI kept   89% depth   0.6x >=5x   0% >=10x   0% |
+  first-come, same bases            64.9% of bases | KPC2 kept   64% depth  11.2x >=5x  97% >=10x  63% | RDH275 kept   66% depth   5.1x >=5x  57% >=10x   5% | ECOLI kept   83% depth   0.6x >=5x   0% >=10x   0% |
+  random, same bases (draw 1 of 5)  64.9% of bases | KPC2 kept   65% depth  11.4x >=5x  98% >=10x  65% | RDH275 kept   64% depth   5.1x >=5x  58% >=10x   4% | ECOLI kept   68% depth   0.5x >=5x   0% >=10x   0% |
+
+-- D=10 original --
+triage D=10 original                95.4% of bases | KPC2 kept   95% depth  16.6x >=5x 100% >=10x  95% | RDH275 kept   99% depth   7.8x >=5x  86% >=10x  27% | ECOLI kept  100% depth   0.7x >=5x   0% >=10x   0% |
+  first-come, same bases            95.4% of bases | KPC2 kept   95% depth  16.7x >=5x 100% >=10x  94% | RDH275 kept   97% depth   7.6x >=5x  85% >=10x  25% | ECOLI kept   99% depth   0.7x >=5x   0% >=10x   0% |
+  random, same bases (draw 1 of 5)  95.4% of bases | KPC2 kept   95% depth  16.8x >=5x 100% >=10x  94% | RDH275 kept   95% depth   7.5x >=5x  84% >=10x  24% | ECOLI kept   97% depth   0.7x >=5x   0% >=10x   0% |
+
+-- D=10 policy --
+triage D=10 policy                  88.0% of bases | KPC2 kept   87% depth  15.0x >=5x 100% >=10x  94% | RDH275 kept   92% depth   7.1x >=5x  84% >=10x  18% | ECOLI kept   99% depth   0.7x >=5x   0% >=10x   0% |
+  first-come, same bases            88.0% of bases | KPC2 kept   87% depth  15.3x >=5x 100% >=10x  90% | RDH275 kept   90% depth   7.0x >=5x  81% >=10x  19% | ECOLI kept   98% depth   0.7x >=5x   0% >=10x   0% |
+  random, same bases (draw 1 of 5)  88.0% of bases | KPC2 kept   88% depth  15.6x >=5x 100% >=10x  90% | RDH275 kept   87% depth   6.9x >=5x  80% >=10x  17% | ECOLI kept   91% depth   0.6x >=5x   0% >=10x   0% |
+
+-- D=10 policy + drop <1kb --
+triage D=10 policy + drop <1kb      85.1% of bases | KPC2 kept   85% depth  14.9x >=5x 100% >=10x  93% | RDH275 kept   82% depth   6.6x >=5x  80% >=10x  13% | ECOLI kept   90% depth   0.6x >=5x   0% >=10x   0% |
+  first-come, same bases            85.1% of bases | KPC2 kept   84% depth  14.8x >=5x 100% >=10x  88% | RDH275 kept   87% depth   6.7x >=5x  78% >=10x  16% | ECOLI kept   97% depth   0.7x >=5x   0% >=10x   0% |
+  random, same bases (draw 1 of 5)  85.1% of bases | KPC2 kept   85% depth  15.0x >=5x 100% >=10x  89% | RDH275 kept   85% depth   6.7x >=5x  78% >=10x  15% | ECOLI kept   88% depth   0.6x >=5x   0% >=10x   0% |
