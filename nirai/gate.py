@@ -77,3 +77,36 @@ def score_pod5(model, paths, threshold=None):
                 if ft is None: yield str(rec.read_id), float("nan"), "basecall"; continue
                 s = float(model["model"].predict_proba(pd.DataFrame([ft], columns=model["features"]))[0, 1])
                 yield str(rec.read_id), s, ("basecall" if s >= thr else "skip")
+
+
+class CalibratedGate:
+    """Streaming, label-free threshold for a pass/fail gate. Scores are P(pass): a read is skipped when its score is below the threshold.
+    The threshold is the (1 - keep) quantile of recent scores, so about `keep` of reads like the recent ones survive (good reads dominate, so this tracks good-read retention).
+      warm-up : the first `warmup` reads are scored but undecided ('hold'); once they are in, their decisions are released with the first threshold (no basecalling needed to wait).
+      rolling : after warm-up the threshold is recomputed every `update` reads from the last `window` scores (follows slow drift within a run).
+    No labels and no basecalls are used. Reads too short to score (score NaN) are always 'basecall'."""
+    def __init__(self, keep=0.98, warmup=300, window=1000, update=100, rolling=True):
+        self.keep, self.warmup, self.window, self.update, self.rolling = keep, warmup, window, update, rolling
+        self.scores = []; self.thr = None; self._n_at_update = 0; self.held = []
+
+    def _recompute(self):
+        recent = np.array(self.scores[-self.window:]); recent = recent[~np.isnan(recent)]
+        self.thr = float(np.quantile(recent, 1 - self.keep)) if len(recent) else None; self._n_at_update = len(self.scores)
+
+    def _decide(self, s):
+        return "basecall" if (np.isnan(s) or s >= self.thr) else "skip"
+
+    def push(self, read_id, score):
+        """add one read's score. Returns a list of (read_id, score, decision) now final: empty during warm-up, the whole warm-up batch when it ends, then one per read."""
+        self.scores.append(score)
+        if self.thr is None:
+            self.held.append((read_id, score))
+            if len([x for x in self.scores if not np.isnan(x)]) < self.warmup: return []
+            self._recompute(); out = [(r, s, self._decide(s)) for r, s in self.held]; self.held = []; return out
+        if self.rolling and len(self.scores) - self._n_at_update >= self.update: self._recompute()
+        return [(read_id, score, self._decide(score))]
+
+    def flush(self):
+        """end of run with fewer reads than the warm-up: decide the held reads with what was seen (or basecall them all if nothing could be scored)."""
+        if self.thr is None: self._recompute()
+        out = [(r, s, "basecall" if self.thr is None else self._decide(s)) for r, s in self.held]; self.held = []; return out

@@ -1,0 +1,19 @@
+extra reads (>=1 s): {np.str_('fail'): 3773, np.str_('fail_rest_0'): 7556, np.str_('pass'): 3622} low share: {np.str_('fail'): 0.986, np.str_('fail_rest_0'): 0.987, np.str_('pass'): 0.022}
+
+held-out run          K  pct  good kept  low caught   (carried-over threshold: good kept / low caught at same pct)
+RDH275              300   99      99.2%         13%   (99.5% / 10%)   [eval n 6625, low 166]
+RDH275              300   98      98.1%         31%   (99.1% / 14%)   [eval n 6625, low 166]
+RDH275             1000   99      99.5%          8%   (99.5% / 8%)   [eval n 5925, low 143]
+RDH275             1000   98      98.6%         22%   (99.2% / 14%)   [eval n 5925, low 143]
+KPC2_FAX39616       300   99      99.5%          8%   (97.1% / 36%)   [eval n 6693, low 72]
+KPC2_FAX39616       300   98      98.9%         19%   (95.0% / 54%)   [eval n 6693, low 72]
+KPC2_FAX39616      1000   99      99.3%         10%   (97.1% / 34%)   [eval n 5993, low 58]
+KPC2_FAX39616      1000   98      98.6%         22%   (95.0% / 53%)   [eval n 5993, low 58]
+KPC2_FAX76295       300   99      98.5%         10%   (98.6% / 10%)   [eval n 7101, low 48]
+KPC2_FAX76295       300   98      97.8%         12%   (97.0% / 17%)   [eval n 7101, low 48]
+KPC2_FAX76295      1000   99      98.5%         11%   (98.5% / 11%)   [eval n 6401, low 44]
+KPC2_FAX76295      1000   98      97.7%         16%   (96.9% / 18%)   [eval n 6401, low 44]
+ECOLI_ATCC25922     300   99      99.4%         40%   (99.6% / 35%)   [eval n 25052, low 2786]
+ECOLI_ATCC25922     300   98      98.7%         51%   (98.9% / 49%)   [eval n 25052, low 2786]
+ECOLI_ATCC25922    1000   99      99.5%         40%   (99.6% / 35%)   [eval n 24352, low 2763]
+ECOLI_ATCC25922    1000   98      99.0%         48%   (98.9% / 49%)   [eval n 24352, low 2763]

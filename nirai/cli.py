@@ -11,7 +11,10 @@ def main(argv=None):
     t.add_argument("--max-reads", type=int, default=None, help="per POD5 file, for quick tests"); t.add_argument("-o", "--out", required=True)
     g = sub.add_parser("gate", help="score POD5 files: basecall or skip each read")
     g.add_argument("--model", required=True); g.add_argument("pod5", nargs="+"); g.add_argument("-o", "--out", required=True)
-    g.add_argument("--threshold", type=float, default=None)
+    g.add_argument("--threshold", type=float, default=None, help="fixed score threshold (default: the one saved with the model)")
+    g.add_argument("--keep", type=float, default=None, help="label-free per-run threshold: keep this fraction of reads (e.g. 0.98). Overrides --threshold")
+    g.add_argument("--warmup", type=int, default=300, help="with --keep: reads scored before the first decision (decisions then released)")
+    g.add_argument("--no-rolling", action="store_true", help="with --keep: do not update the threshold along the run")
     r = sub.add_parser("triage", help="redundancy triage from an online Rawsamble/RawHash2 PAF (reads in arrival order)")
     r.add_argument("--paf", required=True); r.add_argument("-D", type=int, default=5, help="wanted same-strand depth"); r.add_argument("--tau", type=float, default=0.25)
     r.add_argument("--window", type=int, default=1000); r.add_argument("--gate", help="decisions.tsv from `nirai gate`; reads marked skip are not eligible")
@@ -27,8 +30,15 @@ def main(argv=None):
         m = load_model(a.model); n = k = 0
         with open(a.out, "w") as o:
             o.write("read_id\tscore\tdecision\n")
-            for rid, s, d in score_pod5(m, a.pod5, a.threshold):
-                o.write(f"{rid}\t{s:.4f}\t{d}\n"); n += 1; k += d == "skip"
+            if a.keep:
+                from .gate import CalibratedGate
+                cg = CalibratedGate(a.keep, a.warmup, rolling=not a.no_rolling); stream = (x for rid, s, _ in score_pod5(m, a.pod5, -1e9) for x in cg.push(rid, s))
+                import itertools
+                for rid, s, d in itertools.chain(stream, cg.flush()):
+                    o.write(f"{rid}\t{s:.4f}\t{d}\n"); n += 1; k += d == "skip"
+            else:
+                for rid, s, d in score_pod5(m, a.pod5, a.threshold):
+                    o.write(f"{rid}\t{s:.4f}\t{d}\n"); n += 1; k += d == "skip"
         print(f"{n} reads scored, {k} marked skip ({k/max(n,1)*100:.1f}%)")
     else:
         from .triage import read_paf, triage

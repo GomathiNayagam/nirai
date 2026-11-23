@@ -1,0 +1,17 @@
+extra reads (>=1 s): {np.str_('fail'): 3773, np.str_('fail_rest_0'): 7556, np.str_('pass'): 3622} low share: {np.str_('fail'): 0.986, np.str_('fail_rest_0'): 0.987, np.str_('pass'): 0.022}
+
+== T1: test = RDH275 stream (natural mix) ==
+base (RDH275 held out)                      train  55594 test   6925 (low   175) AUC 0.854 | 99%: carried good kept  99% low caught   9%, own-run low caught  17% | 98%: carried good kept  99% low caught  15%, own-run low caught  34% | 95%: carried good kept  98% low caught  32%, own-run low caught  54%
+aug  (+ extra RDH275 fail/pass reads)       train  70545 test   6925 (low   175) AUC 0.856 | 99%: carried good kept  97% low caught  40%, own-run low caught  26% | 98%: carried good kept  95% low caught  54%, own-run low caught  33% | 95%: carried good kept  88% low caught  66%, own-run low caught  51%
+
+== T3: whole-file hold-out: test = fail_rest_0 chunk + 1,000 pass reads; train = others + remaining extra ==
+aug, held-out fail chunk + 1000 pass        train  61989 test   8556 (low  7473) AUC 0.948 | 99%: carried good kept  93% low caught  84%, own-run low caught  22% | 98%: carried good kept  91% low caught  89%, own-run low caught  35% | 95%: carried good kept  87% low caught  93%, own-run low caught  70%
+base, same test                             train  55594 test   8556 (low  7473) AUC 0.939 | 99%: carried good kept  94% low caught  68%, own-run low caught  15% | 98%: carried good kept  93% low caught  79%, own-run low caught  31% | 95%: carried good kept  90% low caught  89%, own-run low caught  60%
+
+== T2: other runs held out ==
+base, KPC2_FAX39616 held out                train  55526 test   6993 (low    76) AUC 0.855 | 99%: carried good kept  98% low caught  33%, own-run low caught  14% | 98%: carried good kept  96% low caught  43%, own-run low caught  28% | 95%: carried good kept  91% low caught  57%, own-run low caught  47%
+aug,  KPC2_FAX39616 held out                train  70477 test   6993 (low    76) AUC 0.874 | 99%: carried good kept  97% low caught  42%, own-run low caught  14% | 98%: carried good kept  94% low caught  59%, own-run low caught  33% | 95%: carried good kept  88% low caught  76%, own-run low caught  57%
+base, ECOLI_ATCC25922 held out              train  37167 test  25352 (low  2799) AUC 0.817 | 99%: carried good kept  99% low caught   6%, own-run low caught   6% | 98%: carried good kept  98% low caught  17%, own-run low caught  15% | 95%: carried good kept  94% low caught  41%, own-run low caught  37%
+aug,  ECOLI_ATCC25922 held out              train  52118 test  25352 (low  2799) AUC 0.896 | 99%: carried good kept  99% low caught  43%, own-run low caught  46% | 98%: carried good kept  98% low caught  52%, own-run low caught  52% | 95%: carried good kept  95% low caught  64%, own-run low caught  64%
+base, KPC2_FAX76295 held out                train  55118 test   7401 (low    50) AUC 0.825 | 99%: carried good kept  98% low caught  22%, own-run low caught   6% | 98%: carried good kept  96% low caught  32%, own-run low caught  20% | 95%: carried good kept  90% low caught  48%, own-run low caught  36%
+aug,  KPC2_FAX76295 held out                train  70069 test   7401 (low    50) AUC 0.845 | 99%: carried good kept  98% low caught  14%, own-run low caught   4% | 98%: carried good kept  96% low caught  30%, own-run low caught  14% | 95%: carried good kept  92% low caught  48%, own-run low caught  40%
