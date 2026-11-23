@@ -11,3 +11,5 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 [tool.setuptools]
 packages = ["nirai"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]

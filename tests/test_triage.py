@@ -34,3 +34,30 @@ def test_decision_is_causal():
     full = triage(names, qlen, recs, D=3)
     cut = triage(names[:8], qlen, {r: [o for o in recs[r] if o[0] in set(names[:8])] for r in names[:8]}, D=3)
     assert (full[:8] == cut).all()
+
+
+def test_short_reads_always_basecalled_and_not_counted_as_redundant():
+    names, qlen, recs = _paf_recs(10, length=900)           # 900 events ~ 820 bases: below the 1 kb policy
+    assert triage(names, qlen, recs, D=3).all()
+    assert not triage(names, qlen, recs, D=3, min_bases=0).all()
+
+
+def test_length_correction_stops_earlier_because_missed_overlaps_are_credited():
+    names, qlen, recs = _paf_recs(40, length=3000)          # ~2.7 kb reads: recall 0.5, so 3 seen overlaps count as depth 6 >= D=5
+    plain = triage(names, qlen, recs, D=5, length_correct=False).sum(); corr = triage(names, qlen, recs, D=5).sum()
+    assert corr < plain
+
+
+def test_short_reads_can_be_dropped():
+    names, qlen, recs = _paf_recs(10, length=900)
+    assert not triage(names, qlen, recs, D=3, short_reads="drop").any()
+    names, qlen, recs = _paf_recs(10, length=3000); qlen["r4"] = 500
+    ch = triage(names, qlen, recs, D=3, short_reads="drop"); assert not ch[4]
+
+
+def test_groups_bring_each_barcode_to_depth_separately():
+    names, qlen, recs = _paf_recs(20)                       # all 20 reads overlap (same genome)
+    g = ["bc1" if i % 2 == 0 else "bc2" for i in range(20)]
+    ch = triage(names, qlen, recs, D=3, groups=g)
+    assert ch[::2].sum() == 3 and ch[1::2].sum() == 3       # 3 reads per barcode instead of 3 in total
+    assert triage(names, qlen, recs, D=3).sum() == 3

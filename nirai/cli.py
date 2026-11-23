@@ -17,7 +17,11 @@ def main(argv=None):
     g.add_argument("--no-rolling", action="store_true", help="with --keep: do not update the threshold along the run")
     r = sub.add_parser("triage", help="redundancy triage from an online Rawsamble/RawHash2 PAF (reads in arrival order)")
     r.add_argument("--paf", required=True); r.add_argument("-D", type=int, default=5, help="wanted same-strand depth"); r.add_argument("--tau", type=float, default=0.25)
-    r.add_argument("--window", type=int, default=1000); r.add_argument("--gate", help="decisions.tsv from `nirai gate`; reads marked skip are not eligible")
+    r.add_argument("--window", type=int, default=1000)
+    r.add_argument("--min-bases", type=int, default=1000, help="reads shorter than this are always basecalled and not triaged (0 = off)")
+    r.add_argument("--groups", help="TSV read_id<TAB>group (e.g. barcode): depth is counted within each group separately")
+    r.add_argument("--short-reads", choices=["basecall", "drop"], default="basecall", help="what to do with reads under --min-bases: basecall them (default) or drop them (whole-genome sequencing only)")
+    r.add_argument("--length-correct", choices=["auto", "on", "off"], default="auto", help="divide estimated depth by the overlap recall for the read length (auto: on when D>=5)"); r.add_argument("--gate", help="decisions.tsv from `nirai gate`; reads marked skip are not eligible")
     r.add_argument("-o", "--out", required=True)
     a = ap.parse_args(argv)
     if a.cmd == "train-gate":
@@ -46,7 +50,7 @@ def main(argv=None):
         if a.gate:
             dec = dict(l.rstrip("\n").split("\t")[::2] for l in list(open(a.gate))[1:])
             elig = np.array([dec.get(n, "basecall") != "skip" for n in names])
-        ch = triage(names, qlen, recs, a.D, a.tau, a.window, elig)
+        ch = triage(names, qlen, recs, a.D, a.tau, a.window, elig, a.min_bases, {'auto': None, 'on': True, 'off': False}[a.length_correct], a.short_reads, (lambda g: np.array([g.get(n, '') for n in names]))(dict(l.rstrip('\n').split('\t')[:2] for l in open(a.groups))) if a.groups else None)
         with open(a.out, "w") as o:
             o.write("read_id\tdecision\n")
             for n, c in zip(names, ch): o.write(f"{n}\t{'basecall' if c else 'back_burner'}\n")

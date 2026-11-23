@@ -11,7 +11,7 @@ for run in ['RDH275', 'KPC2_FAX39616', 'KPC2_FAX76295', 'ECOLI_ATCC25922']:
     te_all = np.where((R == run) & ~extra)[0]; te_all = te_all[np.argsort(I[te_all])]
     tri = np.where(notr & (R != run) | (notr & extra & (run != 'RDH275')))[0]   # RDH275 case: its extra reads would leak the run, so excluded when RDH275 is held out
     if run == 'RDH275': tri = np.where(notr & (R != 'RDH275'))[0]
-    m = fit(tri); ptr = predict(m, tri); p = predict(m, te_all); yt = y[te_all]
+    m = fit(tri); ptr = predict(m, tri); p = predict(m, te_all); yt = y[te_all]; np.savez(os.path.expanduser('~/rawsamble_work/gate_loro/failaug/scores_%s.npz' % run), p=p, y=yt, ptr=ptr, ytr=y[tri])
     for K in (300, 1000):
         cal, ev = p[:K], p[K:]; ye = yt[K:]
         for pc in (99, 98):
