@@ -1,0 +1,51 @@
+Varied-data test of the 1.0 s CNN gate (scripts/gate_varied_extract.py, gate_varied_eval.py).  Low = mean Q < 10.
+Test sets (each never in the training of the model that scores it):
+  MELB2_Vpara  V. parahaemolyticus, MinION, native barcode, labels = public hac calls
+  CJEJ_33560   C. jejuni (low GC)           | LIVAN_19119  L. ivanovii      | SAUR_BPH2947  S. aureus
+  MTB_AMtb1    M. tuberculosis (high GC)    | SALM_10708   Salmonella       (same NanoVarBench set, first ~8 GB of signal, labels = public hac calls, first 80,000 reads with >= 1 s)
+  HG002_PromethION  human HG002, PromethION FLO-PRO114M, ligation kit SQK-LSK114, 3 pass + 3 fail pod5 files (18,355 reads); labels = MinKNOW pass/fail FOLDER (fail ~ Q<9), NOT per-read Q
+Settings: zero-shot = train on the 5 base runs only (KPC2 x3, E. coli, RDH275 + extra fail reads; 2 seeds);  leave-one-out = base + the other hac-labelled sets, test on the one left out (1 seed, each set capped at 30,000 training reads);
+all-but-HG002 = base + all hac-labelled sets, test HG002.
+Columns: catch@98 / catch@99.8 = % of low reads caught when 2% / 0.2% of good reads are flagged, threshold taken from the TEST run's own good reads (ranking quality, not usable live);
+carried = threshold taken from the TRAINING good reads' scores (what a model shipped to a new run would do): goodflag% = % of good reads flagged, badcaught% = % of low reads caught, precision% = % of flagged reads that are really low.
+
+                                             seeds      n  low_pct   AUC    c98   c998   g98    b98  g998   b998   p998
+setting                    test                                                                                        
+all-but-HG002 (test HG002) HG002_PromethION      1  18355     51.6  0.62  36.60  28.20  6.57  40.70  0.55  32.50  98.40
+leave-one-out              CJEJ_33560            1  75783      6.0  0.84  54.10  39.20  3.58  57.80  0.15  37.60  94.10
+                           LIVAN_19119           1  71465     13.2  0.91  70.00  50.30  1.95  69.80  0.11  43.70  98.40
+                           MELB2_Vpara           1  34820      2.4  0.88  44.40  18.60  0.97  34.60  0.04   9.40  84.80
+                           MTB_AMtb1             1  79639      5.4  0.83  21.80   5.10  6.93  51.20  2.83  27.80  36.00
+                           SALM_10708            1  72983      7.9  0.94  65.50  38.80  0.87  55.40  0.05  25.10  97.90
+                           SAUR_BPH2947          1  79635      2.4  0.86  37.70   5.30  1.41  29.20  0.20   5.30  40.10
+zero-shot (5 base runs)    CJEJ_33560            2  75783      6.0  0.85  53.75  38.30  3.61  58.50  0.04  27.95  97.80
+                           HG002_PromethION      2  18355     51.6  0.57  23.30  15.75  8.28  30.30  0.14  14.75  99.15
+                           LIVAN_19119           2  71465     13.2  0.93  67.45  49.35  2.87  70.20  0.04  33.35  99.20
+                           MELB2_Vpara           2  34820      2.4  0.88  41.65  15.90  0.93  30.20  0.01   4.65  93.95
+                           MTB_AMtb1             2  79639      5.4  0.76  18.35   3.10  3.50  30.95  0.42   5.30  42.55
+                           SALM_10708            2  72983      7.9  0.94  63.75  38.45  0.82  53.65  0.02  13.35  98.45
+                           SAUR_BPH2947          2  79635      2.4  0.85  39.65  10.70  3.26  47.60  0.10   4.95  56.55
+
+per fit:
+                   setting  seed             test     n  low_pct   auc  catch@98  catch@99.8  carried98_goodflag%  carried98_badcaught%  carried99.8_goodflag%  carried99.8_badcaught%  carried99.8_precision%
+   zero-shot (5 base runs)     0      MELB2_Vpara 34820      2.4 0.888      42.8        15.5                 0.93                  30.4                   0.01                     5.4                    93.8
+   zero-shot (5 base runs)     0       CJEJ_33560 75783      6.0 0.850      54.1        38.2                 3.39                  58.5                   0.04                    27.6                    97.5
+   zero-shot (5 base runs)     0      LIVAN_19119 71465     13.2 0.928      67.7        48.6                 2.40                  69.2                   0.04                    32.0                    99.2
+   zero-shot (5 base runs)     0     SAUR_BPH2947 79635      2.4 0.852      41.3        10.8                 2.70                  46.2                   0.10                     4.6                    54.9
+   zero-shot (5 base runs)     0        MTB_AMtb1 79639      5.4 0.765      18.3         3.1                 3.55                  32.1                   0.56                     6.6                    40.3
+   zero-shot (5 base runs)     0       SALM_10708 72983      7.9 0.941      64.2        38.0                 0.87                  54.2                   0.02                    14.6                    98.2
+   zero-shot (5 base runs)     0 HG002_PromethION 18355     51.6 0.568      23.0        15.5                 8.27                  30.4                   0.17                    15.1                    99.0
+   zero-shot (5 base runs)     1      MELB2_Vpara 34820      2.4 0.880      40.5        16.3                 0.93                  30.0                   0.01                     3.9                    94.1
+   zero-shot (5 base runs)     1       CJEJ_33560 75783      6.0 0.846      53.4        38.4                 3.83                  58.5                   0.04                    28.3                    98.1
+   zero-shot (5 base runs)     1      LIVAN_19119 71465     13.2 0.926      67.2        50.1                 3.34                  71.2                   0.04                    34.7                    99.2
+   zero-shot (5 base runs)     1     SAUR_BPH2947 79635      2.4 0.839      38.0        10.6                 3.81                  49.0                   0.10                     5.3                    58.2
+   zero-shot (5 base runs)     1        MTB_AMtb1 79639      5.4 0.748      18.4         3.1                 3.46                  29.8                   0.28                     4.0                    44.8
+   zero-shot (5 base runs)     1       SALM_10708 72983      7.9 0.937      63.3        38.9                 0.78                  53.1                   0.01                    12.1                    98.7
+   zero-shot (5 base runs)     1 HG002_PromethION 18355     51.6 0.578      23.6        16.0                 8.29                  30.2                   0.11                    14.4                    99.3
+             leave-one-out     0      MELB2_Vpara 34820      2.4 0.885      44.4        18.6                 0.97                  34.6                   0.04                     9.4                    84.8
+             leave-one-out     0       CJEJ_33560 75783      6.0 0.839      54.1        39.2                 3.58                  57.8                   0.15                    37.6                    94.1
+             leave-one-out     0      LIVAN_19119 71465     13.2 0.913      70.0        50.3                 1.95                  69.8                   0.11                    43.7                    98.4
+             leave-one-out     0     SAUR_BPH2947 79635      2.4 0.859      37.7         5.3                 1.41                  29.2                   0.20                     5.3                    40.1
+             leave-one-out     0        MTB_AMtb1 79639      5.4 0.826      21.8         5.1                 6.93                  51.2                   2.83                    27.8                    36.0
+             leave-one-out     0       SALM_10708 72983      7.9 0.935      65.5        38.8                 0.87                  55.4                   0.05                    25.1                    97.9
+all-but-HG002 (test HG002)     0 HG002_PromethION 18355     51.6 0.617      36.6        28.2                 6.57                  40.7                   0.55                    32.5                    98.4
