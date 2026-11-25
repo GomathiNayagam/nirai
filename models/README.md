@@ -26,7 +26,8 @@ Every number below is on a run the scoring model never saw in training. The ship
 - Low-quality reads are rare in most runs (2-13%), so the saving on basecalling is small.
 
 ## Limits
-- **PromethION / ligation kit (HG002, FLO-PRO114M, SQK-LSK114): does not transfer.** AUC 0.57-0.62 (labels from the MinKNOW pass/fail folder, 6 pod5 files, so this test is weak). HG002 is not in the training data. Do not use the gate on this hardware or kit.
+- **PromethION / ligation kit (HG002, FLO-PRO114M, SQK-LSK114): ranks reads, thresholds not tested.** This file was NOT trained on HG002. On 4 HG002 runs (2 flow cells, 64 pod5 files, labels = MinKNOW pass/fail folder, about 50% fail) an equivalent model that never saw HG002 gave AUC 0.80-0.90 (mean of 3 seeds); training on HG002 too gives 0.83-0.93. The first test in an earlier version of this file (AUC 0.57-0.62, 6 small files) was too weak and is withdrawn. What is NOT tested: a fixed or label-free threshold on PromethION, a pass-heavy run, and other kits; in the HG002 sample the start time alone predicts the folder with AUC about 0.9, so treat the numbers as ranking skill only (inside matched time bins the model scores 0.82-0.92). See `results/nirai_gate_hg002_promethion.jsonl`.
+- **What it looks at:** mostly fast sample-to-sample noise (jitter) and high-frequency power in the first second, spread over the whole window; summary inputs add little (`results/nirai_gate_probe_hg002_melb2.txt`). It misses bad reads that look normal in the first second.
 - Not tested on R9.4, rapid-barcode runs (the earlier 0.4 s gate failed there), GridION, or eukaryotes other than HG002.
 - Needs about 500 reads of a run before it can score (run-relative features), and reads shorter than 1.0 s are not scored.
 - Labels are mean Q from basecalls of different Dorado versions; "Q < 10" is not exactly the same thing across runs.

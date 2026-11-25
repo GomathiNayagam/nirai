@@ -1,0 +1,70 @@
+
+######## HG002 PromethION (unseen by the model): 32000 reads, bad 51.7%; CNN AUC 0.878
+
+== A. frequency bands (share of total power, log10): AUC alone (bad = positive), median for bad vs good ==
+  band (Hz)        AUC    median bad   median good
+      1-5        0.590      -1.086      -1.182
+      5-20       0.508      -0.808      -0.813
+     20-50       0.439      -0.671      -0.647
+     50-100      0.372      -0.700      -0.651
+    100-200      0.360      -0.877      -0.804
+    200-400      0.414      -1.172      -1.130
+    400-800      0.515      -1.468      -1.475
+    800-1600     0.645      -1.700      -1.763
+   1600-2500     0.726      -1.987      -2.094
+  total power      0.357       9.352       9.407
+  trees, train PAO89685 -> test PAO83395:  6 simple measures 0.837 | 9 bands + total 0.808 | both 0.842 | CNN 0.852
+
+== B. misses: BAD reads the model scores highest (caught, n 4135) vs lowest (missed, n 4135); GOOD reads scored highest 10% (false alarms, n 1547) vs rest (n 13915) ==
+  measure                   caught    missed  false-alarm  other good
+  noise_sd                  21.839    22.236       22.847      23.240
+  jitter_MAD                 3.000     2.125        2.438       2.250
+  outlier_frac               0.000     0.000        0.000       0.000
+  median_pA                153.250   150.000      155.375     152.625
+  level_variability         15.594    15.994       16.094      16.415
+  range                     83.314    84.315       87.752      87.128
+  band 1-5 Hz (log share)    -1.080    -1.129       -1.069      -1.192
+  band 5-20 Hz (log share)    -0.774    -0.817       -0.846      -0.810
+  band 20-50 Hz (log share)    -0.639    -0.655       -0.746      -0.640
+  band 50-100 Hz (log share)    -0.687    -0.665       -0.730      -0.646
+  band 100-200 Hz (log share)    -0.869    -0.829       -0.863      -0.800
+  band 200-400 Hz (log share)    -1.187    -1.152       -1.146      -1.129
+  band 400-800 Hz (log share)    -1.459    -1.491       -1.437      -1.478
+  band 800-1600 Hz (log share)    -1.656    -1.772       -1.686      -1.768
+  band 1600-2500 Hz (log share)    -1.923    -2.102       -1.999      -2.100
+  mean CNN logit(P low): caught +10.20 missed -2.71 false-alarm +1.65 other good -3.23
+
+######## melb2 (IN the model training data): 34820 reads, bad 2.4%; CNN AUC 0.922
+
+== A. frequency bands (share of total power, log10): AUC alone (bad = positive), median for bad vs good ==
+  band (Hz)        AUC    median bad   median good
+      1-5        0.565      -1.208      -1.261
+      5-20       0.530      -0.842      -0.859
+     20-50       0.444      -0.699      -0.675
+     50-100      0.402      -0.662      -0.632
+    100-200      0.424      -0.763      -0.738
+    200-400      0.468      -1.073      -1.060
+    400-800      0.547      -1.404      -1.418
+    800-1600     0.667      -1.657      -1.722
+   1600-2500     0.738      -1.983      -2.076
+  total power      0.460       9.362       9.370
+  trees, train first half -> test second half:  6 simple measures 0.821 | 9 bands + total 0.799 | both 0.831 | CNN 0.912
+
+== B. misses: BAD reads the model scores highest (caught, n 207) vs lowest (missed, n 207); GOOD reads scored highest 10% (false alarms, n 3400) vs rest (n 30593) ==
+  measure                   caught    missed  false-alarm  other good
+  noise_sd                  21.918    22.536       22.119      22.164
+  jitter_MAD                 2.812     2.375        2.500       2.312
+  outlier_frac               0.000     0.000        0.000       0.000
+  median_pA                 96.750    94.375       95.875      94.625
+  level_variability         14.597    15.935       15.602      15.263
+  range                     84.690    87.443       87.283      84.500
+  band 1-5 Hz (log share)    -1.227    -1.256       -1.157      -1.270
+  band 5-20 Hz (log share)    -0.875    -0.827       -0.836      -0.862
+  band 20-50 Hz (log share)    -0.701    -0.687       -0.703      -0.672
+  band 50-100 Hz (log share)    -0.665    -0.637       -0.675      -0.628
+  band 100-200 Hz (log share)    -0.763    -0.743       -0.768      -0.736
+  band 200-400 Hz (log share)    -1.059    -1.071       -1.076      -1.059
+  band 400-800 Hz (log share)    -1.372    -1.424       -1.408      -1.419
+  band 800-1600 Hz (log share)    -1.611    -1.714       -1.682      -1.725
+  band 1600-2500 Hz (log share)    -1.919    -2.061       -2.012      -2.081
+  mean CNN logit(P low): caught +5.40 missed -2.45 false-alarm -0.28 other good -3.47

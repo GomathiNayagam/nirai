@@ -1,0 +1,84 @@
+
+######## trained on melb2 (n 34820, bad 2.4%); threshold fixed at 98% of its good reads kept
+  -- jitter only   (weights [0.93])
+     test CJEJ_33560       AUC 0.795   good flagged   3.2%   bad caught  43.7%
+     test LIVAN_19119      AUC 0.858   good flagged   2.8%   bad caught  56.1%
+     test SAUR_BPH2947     AUC 0.749   good flagged   3.3%   bad caught  28.1%
+     test MTB_AMtb1        AUC 0.769   good flagged  11.1%   bad caught  51.2%
+     test SALM_10708       AUC 0.863   good flagged   2.5%   bad caught  50.2%
+     test HG002_PAO89685   AUC 0.713   good flagged   6.0%   bad caught  51.0%
+     test HG002_PAO83395   AUC 0.658   good flagged   3.6%   bad caught  37.9%
+  -- high-freq share only (1600-2500 Hz)   (weights [0.67])
+     test CJEJ_33560       AUC 0.667   good flagged   2.5%   bad caught   7.4%
+     test LIVAN_19119      AUC 0.726   good flagged   2.3%   bad caught  10.5%
+     test SAUR_BPH2947     AUC 0.705   good flagged   1.3%   bad caught   9.0%
+     test MTB_AMtb1        AUC 0.711   good flagged   4.1%   bad caught  21.5%
+     test SALM_10708       AUC 0.772   good flagged   2.0%   bad caught  18.2%
+     test HG002_PAO89685   AUC 0.748   good flagged   1.9%   bad caught  18.5%
+     test HG002_PAO83395   AUC 0.699   good flagged   3.3%   bad caught  21.2%
+  -- high-freq share only (800-2500 Hz)   (weights [0.45])
+     test CJEJ_33560       AUC 0.647   good flagged   2.0%   bad caught   7.5%
+     test LIVAN_19119      AUC 0.684   good flagged   2.4%   bad caught  11.0%
+     test SAUR_BPH2947     AUC 0.648   good flagged   2.2%   bad caught  12.1%
+     test MTB_AMtb1        AUC 0.673   good flagged   6.2%   bad caught  23.5%
+     test SALM_10708       AUC 0.722   good flagged   2.7%   bad caught  20.0%
+     test HG002_PAO89685   AUC 0.690   good flagged   2.5%   bad caught  17.2%
+     test HG002_PAO83395   AUC 0.656   good flagged   3.9%   bad caught  20.3%
+  -- jitter + hf 1600   (weights [0.83 0.3 ])
+     test CJEJ_33560       AUC 0.794   good flagged   2.8%   bad caught  43.0%
+     test LIVAN_19119      AUC 0.861   good flagged   2.9%   bad caught  56.5%
+     test SAUR_BPH2947     AUC 0.760   good flagged   3.3%   bad caught  28.6%
+     test MTB_AMtb1        AUC 0.772   good flagged  10.4%   bad caught  50.7%
+     test SALM_10708       AUC 0.866   good flagged   2.8%   bad caught  51.3%
+     test HG002_PAO89685   AUC 0.728   good flagged   5.5%   bad caught  51.5%
+     test HG002_PAO83395   AUC 0.668   good flagged   3.6%   bad caught  38.3%
+  -- jitter + hf 800   (weights [0.87 0.14])
+     test CJEJ_33560       AUC 0.795   good flagged   3.3%   bad caught  43.9%
+     test LIVAN_19119      AUC 0.858   good flagged   3.0%   bad caught  56.8%
+     test SAUR_BPH2947     AUC 0.750   good flagged   3.6%   bad caught  29.5%
+     test MTB_AMtb1        AUC 0.770   good flagged  12.1%   bad caught  53.4%
+     test SALM_10708       AUC 0.861   good flagged   2.9%   bad caught  51.6%
+     test HG002_PAO89685   AUC 0.719   good flagged   6.3%   bad caught  51.8%
+     test HG002_PAO83395   AUC 0.662   good flagged   3.9%   bad caught  39.0%
+
+######## trained on HG002_PAO89685 (n 30000, bad 52.2%); threshold fixed at 98% of its good reads kept
+  -- jitter only   (weights [0.63])
+     test melb2            AUC 0.792   good flagged   0.2%   bad caught  12.2%
+     test CJEJ_33560       AUC 0.795   good flagged   0.4%   bad caught  25.4%
+     test LIVAN_19119      AUC 0.858   good flagged   0.4%   bad caught  33.3%
+     test SAUR_BPH2947     AUC 0.749   good flagged   0.4%   bad caught   9.9%
+     test MTB_AMtb1        AUC 0.769   good flagged   3.9%   bad caught  29.0%
+     test SALM_10708       AUC 0.863   good flagged   0.3%   bad caught  24.6%
+     test HG002_PAO83395   AUC 0.658   good flagged   1.2%   bad caught  22.9%
+  -- high-freq share only (1600-2500 Hz)   (weights [1.07])
+     test melb2            AUC 0.736   good flagged   2.2%   bad caught  15.1%
+     test CJEJ_33560       AUC 0.667   good flagged   2.7%   bad caught   8.0%
+     test LIVAN_19119      AUC 0.726   good flagged   2.6%   bad caught  11.6%
+     test SAUR_BPH2947     AUC 0.705   good flagged   1.4%   bad caught  10.1%
+     test MTB_AMtb1        AUC 0.711   good flagged   4.6%   bad caught  24.2%
+     test SALM_10708       AUC 0.772   good flagged   2.2%   bad caught  20.1%
+     test HG002_PAO83395   AUC 0.699   good flagged   3.4%   bad caught  22.0%
+  -- high-freq share only (800-2500 Hz)   (weights [0.64])
+     test melb2            AUC 0.695   good flagged   1.6%   bad caught  13.9%
+     test CJEJ_33560       AUC 0.647   good flagged   1.7%   bad caught   5.9%
+     test LIVAN_19119      AUC 0.684   good flagged   1.9%   bad caught   9.0%
+     test SAUR_BPH2947     AUC 0.648   good flagged   1.6%   bad caught   9.3%
+     test MTB_AMtb1        AUC 0.673   good flagged   4.6%   bad caught  18.3%
+     test SALM_10708       AUC 0.722   good flagged   2.1%   bad caught  16.3%
+     test HG002_PAO83395   AUC 0.656   good flagged   3.4%   bad caught  18.7%
+  -- jitter + hf 1600   (weights [0.73 0.87])
+     test melb2            AUC 0.789   good flagged   1.4%   bad caught  20.2%
+     test CJEJ_33560       AUC 0.766   good flagged   1.7%   bad caught  21.3%
+     test LIVAN_19119      AUC 0.838   good flagged   1.8%   bad caught  29.6%
+     test SAUR_BPH2947     AUC 0.755   good flagged   1.3%   bad caught  16.1%
+     test MTB_AMtb1        AUC 0.761   good flagged   6.1%   bad caught  37.5%
+     test SALM_10708       AUC 0.850   good flagged   1.7%   bad caught  34.3%
+     test HG002_PAO83395   AUC 0.727   good flagged   2.9%   bad caught  30.6%
+  -- jitter + hf 800   (weights [0.68 0.61])
+     test melb2            AUC 0.773   good flagged   1.0%   bad caught  17.9%
+     test CJEJ_33560       AUC 0.767   good flagged   1.2%   bad caught  20.2%
+     test LIVAN_19119      AUC 0.831   good flagged   1.4%   bad caught  28.5%
+     test SAUR_BPH2947     AUC 0.731   good flagged   1.3%   bad caught  14.9%
+     test MTB_AMtb1        AUC 0.755   good flagged   6.1%   bad caught  37.4%
+     test SALM_10708       AUC 0.836   good flagged   1.4%   bad caught  31.9%
+     test HG002_PAO83395   AUC 0.713   good flagged   2.7%   bad caught  26.9%
