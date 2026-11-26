@@ -1,0 +1,20 @@
+
+=== learned decision on top of Rawsamble, melb2 first 50000 reads, D=5, tau=0.25; train reads 0-25000, closed-loop test 25000-50000 ===
+policy: chosen 92.6% of reads; train reads 4618, test reads 6144; oracle-choose share in test 57.2%
+open-loop AUC for the oracle decision on test reads (chosen sets from the rule): learned 0.693 | rule deficit score 0.675 | estimated depth (inverted) 0.683
+what the learned model leans on (drop in AUC when shuffled): depth_chosen 0.090, ovl_frac_sum 0.049, len 0.042, ovl_frac_max 0.038, depth_corr 0.008, s1_max 0.008, cm_max 0.004, s1_sum 0.003
+  rule (policy)              chosen (test reads >=1 kb)  57.0% | agree with oracle  65.6% | wasted 17.1% lost 17.3% | chosen bases in 2nd half  77.9%
+  learned thr 0.5            chosen (test reads >=1 kb)  91.9% | agree with oracle  58.0% | wasted 40.8% lost  1.2% | chosen bases in 2nd half  95.9%
+  learned thr 0.65           chosen (test reads >=1 kb)  86.5% | agree with oracle  61.3% | wasted 36.3% lost  2.4% | chosen bases in 2nd half  93.2%
+  learned thr 0.8            chosen (test reads >=1 kb)  72.2% | agree with oracle  64.1% | wasted 27.1% lost  8.8% | chosen bases in 2nd half  88.2%
+LEARNED_DONE
+
+=== learned decision on top of Rawsamble, melb2 first 50000 reads, D=5, tau=0.25; train reads 0-25000, closed-loop test 25000-50000 ===
+policy: chosen 92.6% of reads; train reads 4618, test reads 6144; oracle-choose share in test 57.2%
+open-loop AUC for the oracle decision on test reads (chosen sets from the rule): learned 0.693 | rule deficit score 0.675 | estimated depth (inverted) 0.683
+what the learned model leans on (drop in AUC when shuffled): depth_chosen 0.090, ovl_frac_sum 0.049, len 0.042, ovl_frac_max 0.038, depth_corr 0.008, s1_max 0.008, cm_max 0.004, s1_sum 0.003
+  rule (policy)              chosen (test reads >=1 kb)  57.0% | agree with oracle  65.6% | wasted 17.1% lost 17.3% | chosen bases in 2nd half  77.9%
+  learned thr 0.85           chosen (test reads >=1 kb)  66.5% | agree with oracle  64.5% | wasted 23.6% lost 11.8% | chosen bases in 2nd half  85.2%
+  learned thr 0.9            chosen (test reads >=1 kb)  52.7% | agree with oracle  62.4% | wasted 16.9% lost 20.7% | chosen bases in 2nd half  79.1%
+  learned thr 0.95           chosen (test reads >=1 kb)  44.5% | agree with oracle  62.3% | wasted 11.7% lost 26.1% | chosen bases in 2nd half  73.1%
+LEARNED_DONE

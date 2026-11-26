@@ -1,0 +1,50 @@
+
+=== KPC2 zero-shot, weights overlap_enc_v2.pt: labelled reads 22935 of 31422; sampled 6000 ({'FAX76295': 1500, 'FAX39616': 1500, 'FAX39617': 1500, 'FAV69578': 1500}), causal bank in pooled arrival order ===
+chunks 1760062
+true overlap buckets in bases: 300-500, 500-1000, 1-2k, 2-4k, 4k+
+Rawsamble: reported 30608 precision 66.6% | recall (all flow cells) 300-500: 0.7  500-1: 5.9  1-2: 31.3  2-4: 61.4  4-1000000000: 82.5
+    FAV69578: precision 63.4%; recall 500-1000 5.4, 1-2kb 31.4, 2kb+ 77.3  (true pairs 8312)
+    FAX39616: precision 64.2%; recall 500-1000 5.5, 1-2kb 28.9, 2kb+ 74.0  (true pairs 10948)
+    FAX39617: precision 75.3%; recall 500-1000 5.2, 1-2kb 29.6, 2kb+ 76.0  (true pairs 10663)
+    FAX76295: precision 63.2%; recall 500-1000 7.5, 1-2kb 36.2, 2kb+ 78.1  (true pairs 7883)
+seeder K=3 V=3 tol=0.1: reported 54768 precision 58.0% | recall (all flow cells) 300-500: 37.3  500-1: 70.8  1-2: 88.7  2-4: 94.5  4-1000000000: 98.3
+    FAV69578: precision 55.2%; recall 500-1000 75.4, 1-2kb 91.4, 2kb+ 98.2  (true pairs 8312)
+    FAX39616: precision 57.1%; recall 500-1000 69.1, 1-2kb 84.9, 2kb+ 95.9  (true pairs 10948)
+    FAX39617: precision 69.7%; recall 500-1000 66.4, 1-2kb 88.4, 2kb+ 97.3  (true pairs 10663)
+    FAX76295: precision 50.4%; recall 500-1000 73.0, 1-2kb 91.5, 2kb+ 97.7  (true pairs 7883)
+seeder K=5 V=3 tol=0.1: reported 80628 precision 40.5% | recall (all flow cells) 300-500: 44.9  500-1: 78.1  1-2: 92.2  2-4: 95.6  4-1000000000: 98.8
+    FAV69578: precision 37.0%; recall 500-1000 82.6, 1-2kb 94.2, 2kb+ 98.7  (true pairs 8312)
+    FAX39616: precision 39.6%; recall 500-1000 75.1, 1-2kb 88.4, 2kb+ 96.7  (true pairs 10948)
+    FAX39617: precision 53.5%; recall 500-1000 76.0, 1-2kb 92.7, 2kb+ 98.1  (true pairs 10663)
+    FAX76295: precision 33.6%; recall 500-1000 79.4, 1-2kb 94.5, 2kb+ 98.3  (true pairs 7883)
+seeder K=3 V=2 tol=0.1: reported 131320 precision 25.6% | recall (all flow cells) 300-500: 57.9  500-1: 83.4  1-2: 94.2  2-4: 96.8  4-1000000000: 99.1
+    FAV69578: precision 22.5%; recall 500-1000 87.1, 1-2kb 95.8, 2kb+ 99.1  (true pairs 8312)
+    FAX39616: precision 25.2%; recall 500-1000 80.3, 1-2kb 90.8, 2kb+ 97.5  (true pairs 10948)
+    FAX39617: precision 35.6%; recall 500-1000 82.2, 1-2kb 94.4, 2kb+ 98.6  (true pairs 10663)
+    FAX76295: precision 21.1%; recall 500-1000 84.7, 1-2kb 96.7, 2kb+ 98.8  (true pairs 7883)
+KPC2_DONE
+
+=== KPC2 zero-shot, weights overlap_enc.pt: labelled reads 22935 of 31422; sampled 6000 ({'FAX76295': 1500, 'FAX39616': 1500, 'FAX39617': 1500, 'FAV69578': 1500}), causal bank in pooled arrival order ===
+chunks 1760062
+true overlap buckets in bases: 300-500, 500-1000, 1-2k, 2-4k, 4k+
+Rawsamble: reported 30608 precision 66.6% | recall (all flow cells) 300-500: 0.7  500-1: 5.9  1-2: 31.3  2-4: 61.4  4-1000000000: 82.5
+    FAV69578: precision 63.4%; recall 500-1000 5.4, 1-2kb 31.4, 2kb+ 77.3  (true pairs 8312)
+    FAX39616: precision 64.2%; recall 500-1000 5.5, 1-2kb 28.9, 2kb+ 74.0  (true pairs 10948)
+    FAX39617: precision 75.3%; recall 500-1000 5.2, 1-2kb 29.6, 2kb+ 76.0  (true pairs 10663)
+    FAX76295: precision 63.2%; recall 500-1000 7.5, 1-2kb 36.2, 2kb+ 78.1  (true pairs 7883)
+seeder K=3 V=3 tol=0.1: reported 54358 precision 57.5% | recall (all flow cells) 300-500: 34.7  500-1: 66.5  1-2: 86.0  2-4: 93.2  4-1000000000: 97.7
+    FAV69578: precision 54.2%; recall 500-1000 70.1, 1-2kb 88.7, 2kb+ 97.7  (true pairs 8312)
+    FAX39616: precision 56.5%; recall 500-1000 63.6, 1-2kb 81.6, 2kb+ 95.0  (true pairs 10948)
+    FAX39617: precision 69.5%; recall 500-1000 64.7, 1-2kb 86.5, 2kb+ 96.4  (true pairs 10663)
+    FAX76295: precision 49.9%; recall 500-1000 68.3, 1-2kb 88.6, 2kb+ 96.9  (true pairs 7883)
+seeder K=5 V=3 tol=0.1: reported 81017 precision 39.7% | recall (all flow cells) 300-500: 42.1  500-1: 73.8  1-2: 89.6  2-4: 94.6  4-1000000000: 98.4
+    FAV69578: precision 36.2%; recall 500-1000 76.7, 1-2kb 92.0, 2kb+ 98.2  (true pairs 8312)
+    FAX39616: precision 39.1%; recall 500-1000 70.6, 1-2kb 84.7, 2kb+ 96.1  (true pairs 10948)
+    FAX39617: precision 52.6%; recall 500-1000 73.1, 1-2kb 90.5, 2kb+ 97.3  (true pairs 10663)
+    FAX76295: precision 32.6%; recall 500-1000 75.2, 1-2kb 92.5, 2kb+ 97.7  (true pairs 7883)
+seeder K=3 V=2 tol=0.1: reported 135103 precision 24.6% | recall (all flow cells) 300-500: 54.5  500-1: 79.4  1-2: 92.2  2-4: 96.0  4-1000000000: 98.9
+    FAV69578: precision 21.6%; recall 500-1000 81.7, 1-2kb 94.9, 2kb+ 98.7  (true pairs 8312)
+    FAX39616: precision 23.9%; recall 500-1000 77.2, 1-2kb 87.2, 2kb+ 97.0  (true pairs 10948)
+    FAX39617: precision 34.5%; recall 500-1000 78.2, 1-2kb 93.5, 2kb+ 98.3  (true pairs 10663)
+    FAX76295: precision 20.2%; recall 500-1000 80.8, 1-2kb 94.6, 2kb+ 98.5  (true pairs 7883)
+KPC2_DONE

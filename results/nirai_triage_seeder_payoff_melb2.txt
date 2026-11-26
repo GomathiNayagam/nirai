@@ -1,0 +1,60 @@
+
+=== melb2 first 50,000 reads (48,025 with public call), D=[3, 5], tau=0.25; oracle = true reference positions instead of Rawsamble overlaps ===
+ALL reads                                 56.1 Mb  depth  10.7x | SNP P  99.99 R  99.22 F1  99.60 | indel F1  77.92
+-- D=3 POLICY (real Rawsamble): chosen 96.4% of reads
+  POLICY D=3                              48.1 Mb  depth   9.1x | SNP P  99.99 R  98.93 F1  99.46 | indel F1  76.00
+  first-come, same bases                  48.1 Mb  depth   9.1x | SNP P  99.98 R  98.37 F1  99.17 | indel F1  75.49
+  random, same bases (mean of 2)          48.1 Mb  depth   9.1x | SNP F1  99.10 | indel F1  74.69
+-- D=3 ORACLE-long (shorts always chosen): chosen 89.1% of reads
+  ORACLE-long D=3                         36.1 Mb  depth   6.8x | SNP P  99.99 R  97.53 F1  98.74 | indel F1  71.68
+  first-come, same bases                  36.1 Mb  depth   6.9x | SNP P  99.98 R  94.05 F1  96.92 | indel F1  69.67
+  random, same bases (mean of 2)          36.1 Mb  depth   6.9x | SNP F1  96.80 | indel F1  68.09
+-- D=3 ORACLE-all (oracle decides shorts too): chosen 61.9% of reads
+  ORACLE-all D=3                          30.8 Mb  depth   5.8x | SNP P  99.99 R  97.13 F1  98.54 | indel F1  67.93
+  first-come, same bases                  30.8 Mb  depth   5.9x | SNP P  99.97 R  89.43 F1  94.41 | indel F1  65.47
+  random, same bases (mean of 2)          30.8 Mb  depth   5.9x | SNP F1  94.41 | indel F1  62.53
+-- D=3 SEEDERk3-long (learned overlaps, shorts always chosen): chosen 90.5% of reads
+  SEEDERk3-long D=3                       36.8 Mb  depth   6.9x | SNP P  99.99 R  96.72 F1  98.33 | indel F1  72.11
+  first-come, same bases                  36.8 Mb  depth   7.0x | SNP P  99.98 R  94.38 F1  97.10 | indel F1  69.52
+  random, same bases (mean of 2)          36.8 Mb  depth   7.0x | SNP F1  96.78 | indel F1  69.85
+-- D=3 SEEDERk3-all (learned overlaps decide shorts too): chosen 85.0% of reads
+  SEEDERk3-all D=3                        35.2 Mb  depth   6.6x | SNP P  99.99 R  96.57 F1  98.25 | indel F1  70.52
+  first-come, same bases                  35.2 Mb  depth   6.7x | SNP P  99.98 R  93.39 F1  96.57 | indel F1  69.63
+  random, same bases (mean of 2)          35.2 Mb  depth   6.7x | SNP F1  96.58 | indel F1  68.17
+-- D=3 SEEDERk5-long (K=5 V=3, shorts always chosen): chosen 90.1% of reads
+  SEEDERk5-long D=3                       35.2 Mb  depth   6.6x | SNP P  99.99 R  96.24 F1  98.08 | indel F1  70.68
+  first-come, same bases                  35.2 Mb  depth   6.7x | SNP P  99.98 R  93.40 F1  96.57 | indel F1  69.63
+  random, same bases (mean of 2)          35.2 Mb  depth   6.7x | SNP F1  96.45 | indel F1  67.75
+-- D=3 SEEDERk5-all (K=5 V=3, decides shorts too): chosen 83.5% of reads
+  SEEDERk5-all D=3                        33.4 Mb  depth   6.3x | SNP P  99.99 R  96.00 F1  97.96 | indel F1  69.30
+  first-come, same bases                  33.4 Mb  depth   6.3x | SNP P  99.98 R  91.98 F1  95.81 | indel F1  67.57
+  random, same bases (mean of 2)          33.4 Mb  depth   6.3x | SNP F1  95.81 | indel F1  66.74
+-- D=5 POLICY (real Rawsamble): chosen 92.6% of reads
+  POLICY D=5                              46.5 Mb  depth   8.8x | SNP P  99.98 R  98.89 F1  99.44 | indel F1  75.84
+  first-come, same bases                  46.5 Mb  depth   8.8x | SNP P  99.98 R  98.09 F1  99.03 | indel F1  74.68
+  random, same bases (mean of 2)          46.5 Mb  depth   8.8x | SNP F1  99.06 | indel F1  74.91
+-- D=5 ORACLE-long (shorts always chosen): chosen 93.7% of reads
+  ORACLE-long D=5                         44.9 Mb  depth   8.5x | SNP P  99.99 R  98.97 F1  99.47 | indel F1  75.64
+  first-come, same bases                  44.9 Mb  depth   8.5x | SNP P  99.98 R  97.76 F1  98.86 | indel F1  73.99
+  random, same bases (mean of 2)          44.9 Mb  depth   8.5x | SNP F1  98.83 | indel F1  73.59
+-- D=5 ORACLE-all (oracle decides shorts too): chosen 73.6% of reads
+  ORACLE-all D=5                          41.5 Mb  depth   7.9x | SNP P  99.99 R  98.89 F1  99.43 | indel F1  74.53
+  first-come, same bases                  41.5 Mb  depth   7.9x | SNP P  99.98 R  96.91 F1  98.42 | indel F1  72.60
+  random, same bases (mean of 2)          41.5 Mb  depth   7.9x | SNP F1  98.11 | indel F1  71.31
+-- D=5 SEEDERk3-long (learned overlaps, shorts always chosen): chosen 94.7% of reads
+  SEEDERk3-long D=5                       45.2 Mb  depth   8.6x | SNP P  99.99 R  98.80 F1  99.39 | indel F1  76.01
+  first-come, same bases                  45.2 Mb  depth   8.6x | SNP P  99.98 R  97.84 F1  98.90 | indel F1  74.11
+  random, same bases (mean of 2)          45.2 Mb  depth   8.6x | SNP F1  98.77 | indel F1  74.02
+-- D=5 SEEDERk3-all (learned overlaps decide shorts too): chosen 91.6% of reads
+  SEEDERk3-all D=5                        44.3 Mb  depth   8.4x | SNP P  99.99 R  98.79 F1  99.39 | indel F1  75.30
+  first-come, same bases                  44.3 Mb  depth   8.4x | SNP P  99.98 R  97.51 F1  98.73 | indel F1  73.61
+  random, same bases (mean of 2)          44.3 Mb  depth   8.4x | SNP F1  98.72 | indel F1  73.02
+-- D=5 SEEDERk5-long (K=5 V=3, shorts always chosen): chosen 94.0% of reads
+  SEEDERk5-long D=5                       43.3 Mb  depth   8.2x | SNP P  99.99 R  98.56 F1  99.27 | indel F1  75.02
+  first-come, same bases                  43.3 Mb  depth   8.2x | SNP P  99.98 R  97.33 F1  98.64 | indel F1  73.71
+  random, same bases (mean of 2)          43.3 Mb  depth   8.2x | SNP F1  98.56 | indel F1  73.17
+-- D=5 SEEDERk5-all (K=5 V=3, decides shorts too): chosen 89.7% of reads
+  SEEDERk5-all D=5                        42.1 Mb  depth   8.0x | SNP P  99.99 R  98.55 F1  99.27 | indel F1  74.26
+  first-come, same bases                  42.1 Mb  depth   8.0x | SNP P  99.98 R  97.06 F1  98.50 | indel F1  73.33
+  random, same bases (mean of 2)          42.1 Mb  depth   8.0x | SNP F1  98.34 | indel F1  72.69
+SEEDER_PAYOFF_DONE

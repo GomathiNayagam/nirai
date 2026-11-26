@@ -1,0 +1,54 @@
+melb2 first 50000 reads, D=5, tau=0.25, window=1000 events, length-corrected; truth = minimap2 of public hac calls
+reads 50000; with public call 48025; used as truth (aligned >=50%) 46738; chosen for basecalling 46310 (92.6%), bases chosen 84.6%
+
+== 1. depth estimate vs true depth (same-strand coverage by the reads the rule chose earlier; per-read mean over 1-kb windows) ==
+length      n   chosen%  true_depth  est_raw  est/true  est_corrected | oracle_choose%  agree%  wasted%(chosen,oracle skips)  lost%(skipped,oracle chooses)
+0-1kb      38126   100.0       2.35     0.07     0.03          nan |      100.0     100.0            0.0                    0.0
+1-2kb       6117    61.5       2.60     0.77     0.30         2.26 |       73.4      65.6           10.1                   24.3
+2-4kb       3174    72.9       2.73     1.41     0.52         2.32 |       73.7      78.9            9.6                   11.5
+4-8kb       1497    76.6       2.70     1.70     0.63         2.33 |       75.6      83.3            8.4                    8.4
+8-infkb     1086    88.4       2.65     1.77     0.67         2.11 |       77.6      79.9           15.3                    4.8
+Spearman est_raw vs true depth (reads >=1 kb): 0.564; overall agreement with oracle 72.7%
+
+== 2. which true overlaps does Rawsamble find? (pairs of mapped same-strand reads, earlier read j < later read i, true overlap on the reference) ==
+true same-strand overlapping pairs 251353; found by Rawsamble (target listed for the later read) 9.7%
+recall by true overlap length:
+  0-0.5kb   pairs   174422  found   0.4%
+  0.5-1kb   pairs    45761  found  10.9%
+  1-2kb     pairs    19249  found  46.4%
+  2-4kb     pairs     8367  found  78.0%
+  4-8kb     pairs     2791  found  87.2%
+  8-infkb   pairs      763  found  93.6%
+recall by the shorter read of the pair (kb):
+  0-1kb     pairs   209087  found   2.4%
+  1-2kb     pairs    25752  found  33.8%
+  2-4kb     pairs    11139  found  60.4%
+  4-8kb     pairs     3876  found  71.6%
+  8-infkb   pairs     1499  found  77.9%
+precision of reported overlaps (both reads mapped): is the reported pair a true reference overlap of >=200 bp?
+  reported pairs with both reads mapped 30141; true overlap >=200 bp: 81.5%
+  reported overlap length 0-0.5kb   n     3641  true  82.8%
+  reported overlap length 0.5-1kb   n     8301  true  85.0%
+  reported overlap length 1-2kb     n     8958  true  86.8%
+  reported overlap length 2-4kb     n     5449  true  82.7%
+  reported overlap length 4-infkb   n     3792  true  58.0%
+  query read mostly in a repeat region (>50%): n 3743, true 19.3%; others 90.3%
+
+== 3. what explains the decision? single-feature AUC for CHOSEN (reads >=1 kb with truth) ==
+  read length                            AUC 0.583   median chosen 2158.18 vs skipped 1657.27
+  mean Q                                 AUC 0.456   median chosen 16.93 vs skipped 17.16
+  mapq                                   AUC 0.510   median chosen 60.00 vs skipped 60.00
+  repeat fraction                        AUC 0.493   median chosen 0.00 vs skipped 0.00
+  arrival order                          AUC 0.327   median chosen 23795.00 vs skipped 35667.00
+  overlap records                        AUC 0.232   median chosen 1.00 vs skipped 3.00
+  fraction of windows with any overlap   AUC 0.084   median chosen 0.05 vs skipped 1.00
+  estimated depth                        AUC 0.113   median chosen 0.05 vs skipped 2.00
+  TRUE depth (hidden from rule)          AUC 0.237   median chosen 2.00 vs skipped 3.80
+chosen share by arrival order (how the rule saturates): 0-5k: 98%, 5-10k: 98%, 10-20k: 96%, 20-30k: 93%, 30-40k: 90%, 40-50k: 87%
+
+== 4. where does the rule go wrong? (reads >=1 kb with truth) ==
+  WASTED: chosen but true depth already enough   n   1102  median length   1960 b  median Q  16.6  repeat frac 0.018  true depth  4.95  est depth  0.95
+  LOST: skipped but true depth still short       n   1840  median length   1559 b  median Q  17.2  repeat frac 0.078  true depth  2.48  est depth  2.03
+  all reads >=1 kb with truth                    n  10762  median length   1945 b  median Q  17.0  repeat frac 0.032  true depth  2.65  est depth  1.15
+  LOST reads by true depth (they were skipped, so the estimate said "enough"): true depth <1: 91, 1-2: 349, 2-3: 571, >=3: 829
+final coverage (both strands, 100-bp bins): share of genome at depth >=5 / >=10: all mapped reads 97.9% / 66.8%; chosen reads 96.1% / 48.1%; chosen keeps 83.3% of mapped read-bins

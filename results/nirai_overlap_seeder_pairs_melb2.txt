@@ -1,0 +1,91 @@
+
+=== pair test, V=2 K=20: 8481 held-out reads, causal bank ===
+chunks 257863
+reported pairs 245370
+precision of reported pairs (true same-strand overlap >= 100 bases): 16.3%  (true pairs in the set: 55123)
+recall by true overlap length (bases):  ours | Rawsamble
+  0-300: pairs   25525  ours  46.8%  Rawsamble   0.1%
+  300-500: pairs   12029  ours  90.9%  Rawsamble   1.1%
+  500-1000: pairs   10583  ours  98.2%  Rawsamble  10.6%
+  1000-2000: pairs    4269  ours  99.4%  Rawsamble  45.7%
+  2000-4000: pairs    1920  ours  99.6%  Rawsamble  78.2%
+  4000-inf: pairs     797  ours  99.2%  Rawsamble  90.1%
+Rawsamble reported pairs inside this set: 6180; true >= 100 bases: 88.2%
+PAIRS_DONE
+
+=== pair test, V=2 K=20: 8481 held-out reads, causal bank ===
+chunks 257863
+settings: K = neighbours per chunk, V = consistent chunk matches, tol = allowed speed difference.  precision = reported pairs with true overlap >= 100 bases
+Rawsamble: reported 6180, precision 88.2%; recall 300-500 1.1%, 500-1000 10.6%, 1-2kb 45.7%
+K=1  V=2 tol=0.2: reported   24040 precision  90.1% | recall 0-300  13.9  300-500  41.1  500-1000  64.8  1-2kb  86.7  2kb+  96.7
+K=1  V=2 tol=0.1: reported   23632 precision  90.8% | recall 0-300  13.9  300-500  40.8  500-1000  63.7  1-2kb  85.8  2kb+  96.2
+K=1  V=3 tol=0.2: reported   15887 precision  95.1% | recall 0-300   5.3  300-500  24.1  500-1000  47.7  1-2kb  76.5  2kb+  93.0
+K=1  V=3 tol=0.1: reported   15475 precision  95.5% | recall 0-300   5.3  300-500  23.8  500-1000  46.6  1-2kb  74.1  2kb+  90.7
+K=1  V=4 tol=0.2: reported   11380 precision  95.7% | recall 0-300   1.6  300-500  13.3  500-1000  34.3  1-2kb  66.3  2kb+  89.1
+K=1  V=4 tol=0.1: reported   10935 precision  95.9% | recall 0-300   1.6  300-500  13.1  500-1000  33.1  1-2kb  62.9  2kb+  85.3
+K=1  V=6 tol=0.2: reported    6509 precision  95.9% | recall 0-300   0.1  300-500   3.2  500-1000  15.5  1-2kb  46.7  2kb+  81.1
+K=1  V=6 tol=0.1: reported    6094 precision  96.2% | recall 0-300   0.1  300-500   3.2  500-1000  14.8  1-2kb  43.4  2kb+  75.3
+K=3  V=2 tol=0.2: reported   44990 precision  73.3% | recall 0-300  30.0  300-500  73.0  500-1000  91.5  1-2kb  98.0  2kb+  98.9
+K=3  V=2 tol=0.1: reported   43432 precision  75.5% | recall 0-300  29.9  300-500  72.5  500-1000  90.7  1-2kb  97.8  2kb+  98.8
+K=3  V=3 tol=0.2: reported   28312 precision  91.5% | recall 0-300  14.3  300-500  55.9  500-1000  82.8  1-2kb  95.9  2kb+  98.3
+K=3  V=3 tol=0.1: reported   27440 precision  92.9% | recall 0-300  14.2  300-500  54.9  500-1000  81.0  1-2kb  94.3  2kb+  97.6
+K=3  V=4 tol=0.2: reported   21625 precision  93.6% | recall 0-300   5.5  300-500  38.3  500-1000  72.1  1-2kb  92.8  2kb+  97.5
+K=3  V=4 tol=0.1: reported   20865 precision  94.4% | recall 0-300   5.5  300-500  37.4  500-1000  69.4  1-2kb  90.2  2kb+  95.5
+K=3  V=6 tol=0.2: reported   13866 precision  94.1% | recall 0-300   0.3  300-500  13.0  500-1000  49.0  1-2kb  85.4  2kb+  94.3
+K=3  V=6 tol=0.1: reported   13209 precision  94.5% | recall 0-300   0.3  300-500  12.8  500-1000  47.0  1-2kb  80.7  2kb+  90.2
+K=5  V=2 tol=0.2: reported   63479 precision  56.7% | recall 0-300  36.3  300-500  81.2  500-1000  95.5  1-2kb  98.8  2kb+  99.0
+K=5  V=2 tol=0.1: reported   59907 precision  59.9% | recall 0-300  36.2  300-500  80.7  500-1000  95.0  1-2kb  98.7  2kb+  99.0
+K=5  V=3 tol=0.2: reported   33702 precision  86.3% | recall 0-300  18.7  300-500  66.1  500-1000  89.9  1-2kb  97.7  2kb+  98.7
+K=5  V=3 tol=0.1: reported   32222 precision  89.1% | recall 0-300  18.5  300-500  65.1  500-1000  88.2  1-2kb  96.8  2kb+  98.4
+K=5  V=4 tol=0.2: reported   25609 precision  90.9% | recall 0-300   7.6  300-500  49.0  500-1000  82.0  1-2kb  95.9  2kb+  98.4
+K=5  V=4 tol=0.1: reported   24542 precision  92.5% | recall 0-300   7.6  300-500  47.7  500-1000  79.1  1-2kb  93.9  2kb+  97.1
+K=5  V=6 tol=0.2: reported   16664 precision  92.2% | recall 0-300   0.5  300-500  19.0  500-1000  61.0  1-2kb  90.9  2kb+  96.1
+K=5  V=6 tol=0.1: reported   15837 precision  93.1% | recall 0-300   0.5  300-500  18.4  500-1000  58.2  1-2kb  86.9  2kb+  93.0
+K=20 V=2 tol=0.2: reported  245370 precision  16.3% | recall 0-300  46.8  300-500  90.9  500-1000  98.2  1-2kb  99.4  2kb+  99.5
+K=20 V=2 tol=0.1: reported  222953 precision  18.0% | recall 0-300  46.7  300-500  90.6  500-1000  98.0  1-2kb  99.3  2kb+  99.4
+K=20 V=3 tol=0.2: reported   70935 precision  47.4% | recall 0-300  27.2  300-500  80.2  500-1000  95.7  1-2kb  98.8  2kb+  99.3
+K=20 V=3 tol=0.1: reported   59592 precision  55.9% | recall 0-300  26.9  300-500  79.2  500-1000  94.7  1-2kb  98.5  2kb+  99.1
+K=20 V=4 tol=0.2: reported   42470 precision  65.1% | recall 0-300  12.6  300-500  65.5  500-1000  91.6  1-2kb  97.9  2kb+  99.1
+K=20 V=4 tol=0.1: reported   36259 precision  74.6% | recall 0-300  12.4  300-500  63.6  500-1000  89.2  1-2kb  96.5  2kb+  98.6
+K=20 V=6 tol=0.2: reported   24670 precision  76.9% | recall 0-300   1.0  300-500  32.0  500-1000  77.0  1-2kb  95.1  2kb+  97.8
+K=20 V=6 tol=0.1: reported   21745 precision  83.7% | recall 0-300   1.0  300-500  30.7  500-1000  72.9  1-2kb  92.3  2kb+  96.0
+PAIRS_DONE
+### model v2 (augmented, 6000 steps): overlap_enc_v2.pt
+
+=== pair test, V=3 K=3: 8481 held-out reads, causal bank ===
+chunks 257863
+settings: K = neighbours per chunk, V = consistent chunk matches, tol = allowed speed difference.  precision = reported pairs with true overlap >= 100 bases
+Rawsamble: reported 6180, precision 88.2%; recall 300-500 1.1%, 500-1000 10.6%, 1-2kb 45.7%
+K=1  V=2 tol=0.2: reported   24185 precision  90.5% | recall 0-300  13.6  300-500  41.6  500-1000  66.3  1-2kb  88.0  2kb+  97.3
+K=1  V=2 tol=0.1: reported   23765 precision  91.2% | recall 0-300  13.6  300-500  41.2  500-1000  65.4  1-2kb  87.0  2kb+  96.7
+K=1  V=3 tol=0.2: reported   16003 precision  95.2% | recall 0-300   5.0  300-500  24.1  500-1000  48.6  1-2kb  78.0  2kb+  94.4
+K=1  V=3 tol=0.1: reported   15484 precision  95.6% | recall 0-300   5.0  300-500  23.7  500-1000  47.1  1-2kb  74.9  2kb+  92.2
+K=1  V=4 tol=0.2: reported   11360 precision  95.5% | recall 0-300   1.6  300-500  12.8  500-1000  34.0  1-2kb  67.2  2kb+  90.2
+K=1  V=4 tol=0.1: reported   10831 precision  95.9% | recall 0-300   1.5  300-500  12.6  500-1000  32.7  1-2kb  62.8  2kb+  85.8
+K=1  V=6 tol=0.2: reported    6414 precision  95.6% | recall 0-300   0.1  300-500   2.9  500-1000  14.9  1-2kb  46.4  2kb+  81.0
+K=1  V=6 tol=0.1: reported    6005 precision  96.0% | recall 0-300   0.1  300-500   2.9  500-1000  14.3  1-2kb  43.1  2kb+  75.2
+K=3  V=2 tol=0.2: reported   44487 precision  74.8% | recall 0-300  30.1  300-500  74.5  500-1000  92.4  1-2kb  98.4  2kb+  99.0
+K=3  V=2 tol=0.1: reported   42896 precision  77.2% | recall 0-300  30.0  300-500  73.9  500-1000  91.9  1-2kb  98.1  2kb+  98.9
+K=3  V=3 tol=0.2: reported   28293 precision  91.7% | recall 0-300  13.8  300-500  55.9  500-1000  84.0  1-2kb  96.7  2kb+  98.7
+K=3  V=3 tol=0.1: reported   27403 precision  93.0% | recall 0-300  13.7  300-500  54.7  500-1000  82.0  1-2kb  95.3  2kb+  98.0
+K=3  V=4 tol=0.2: reported   21681 precision  93.5% | recall 0-300   5.2  300-500  37.7  500-1000  73.2  1-2kb  93.5  2kb+  97.9
+K=3  V=4 tol=0.1: reported   20800 precision  94.2% | recall 0-300   5.2  300-500  36.6  500-1000  70.1  1-2kb  90.2  2kb+  95.8
+K=3  V=6 tol=0.2: reported   13694 precision  93.9% | recall 0-300   0.3  300-500  12.0  500-1000  48.1  1-2kb  86.1  2kb+  94.7
+K=3  V=6 tol=0.1: reported   12973 precision  94.5% | recall 0-300   0.3  300-500  11.7  500-1000  45.9  1-2kb  80.7  2kb+  90.7
+K=5  V=2 tol=0.2: reported   44487 precision  74.8% | recall 0-300  30.1  300-500  74.5  500-1000  92.4  1-2kb  98.4  2kb+  99.0
+K=5  V=2 tol=0.1: reported   42896 precision  77.2% | recall 0-300  30.0  300-500  73.9  500-1000  91.9  1-2kb  98.1  2kb+  98.9
+K=5  V=3 tol=0.2: reported   28293 precision  91.7% | recall 0-300  13.8  300-500  55.9  500-1000  84.0  1-2kb  96.7  2kb+  98.7
+K=5  V=3 tol=0.1: reported   27403 precision  93.0% | recall 0-300  13.7  300-500  54.7  500-1000  82.0  1-2kb  95.3  2kb+  98.0
+K=5  V=4 tol=0.2: reported   21681 precision  93.5% | recall 0-300   5.2  300-500  37.7  500-1000  73.2  1-2kb  93.5  2kb+  97.9
+K=5  V=4 tol=0.1: reported   20800 precision  94.2% | recall 0-300   5.2  300-500  36.6  500-1000  70.1  1-2kb  90.2  2kb+  95.8
+K=5  V=6 tol=0.2: reported   13694 precision  93.9% | recall 0-300   0.3  300-500  12.0  500-1000  48.1  1-2kb  86.1  2kb+  94.7
+K=5  V=6 tol=0.1: reported   12973 precision  94.5% | recall 0-300   0.3  300-500  11.7  500-1000  45.9  1-2kb  80.7  2kb+  90.7
+K=20 V=2 tol=0.2: reported   44487 precision  74.8% | recall 0-300  30.1  300-500  74.5  500-1000  92.4  1-2kb  98.4  2kb+  99.0
+K=20 V=2 tol=0.1: reported   42896 precision  77.2% | recall 0-300  30.0  300-500  73.9  500-1000  91.9  1-2kb  98.1  2kb+  98.9
+K=20 V=3 tol=0.2: reported   28293 precision  91.7% | recall 0-300  13.8  300-500  55.9  500-1000  84.0  1-2kb  96.7  2kb+  98.7
+K=20 V=3 tol=0.1: reported   27403 precision  93.0% | recall 0-300  13.7  300-500  54.7  500-1000  82.0  1-2kb  95.3  2kb+  98.0
+K=20 V=4 tol=0.2: reported   21681 precision  93.5% | recall 0-300   5.2  300-500  37.7  500-1000  73.2  1-2kb  93.5  2kb+  97.9
+K=20 V=4 tol=0.1: reported   20800 precision  94.2% | recall 0-300   5.2  300-500  36.6  500-1000  70.1  1-2kb  90.2  2kb+  95.8
+K=20 V=6 tol=0.2: reported   13694 precision  93.9% | recall 0-300   0.3  300-500  12.0  500-1000  48.1  1-2kb  86.1  2kb+  94.7
+K=20 V=6 tol=0.1: reported   12973 precision  94.5% | recall 0-300   0.3  300-500  11.7  500-1000  45.9  1-2kb  80.7  2kb+  90.7
+PAIRS_DONE

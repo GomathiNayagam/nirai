@@ -31,3 +31,7 @@ Every number below is on a run the scoring model never saw in training. The ship
 - Not tested on R9.4, rapid-barcode runs (the earlier 0.4 s gate failed there), GridION, or eukaryotes other than HG002.
 - Needs about 500 reads of a run before it can score (run-relative features), and reads shorter than 1.0 s are not scored.
 - Labels are mean Q from basecalls of different Dorado versions; "Q < 10" is not exactly the same thing across runs.
+
+## Overlap seeder (research, not packaged)
+
+A separate small model for the triage stage, not the gate. 333k-parameter 1D CNN that maps a 2000-sample signal chunk (about 160 bases) to a 64-number fingerprint; chunks of different reads at the same genome position get similar fingerprints, so overlaps between reads can be found without basecalls or a reference. Trained on melb2 (first 50,000 reads) with Dorado move tables and minimap2 for labels only. On a held-out part of the same genome it finds 55% / 81% / 94% of true overlaps of 300-500 / 500-1,000 / 1,000-2,000 bases at 92.9% precision (Rawsamble: 1% / 11% / 46% at 88.2%). v2 (trained with speed and noise augmentation) keeps the same overlap results (precision 93.0%; recall 55% / 82% / 95% / 98%) and survives added noise (recall@1 77% at noise 0.3, v1 8%). Limits: one genome and one run so far; slow pores (16+ samples per base) and repeat regions are weak; speed and memory not measured; benefit for triage not yet shown. Code: `scripts/overlap_*.py`; results: `results/nirai_overlap_seeder_*.txt`. Weights are not in the repo yet.

@@ -1,0 +1,54 @@
+
+=== KPC2 sweep, weights overlap_enc_v2.pt, 2400 sampled reads ({'FAX76295': 600, 'FAX39616': 600, 'FAX39617': 600, 'FAV69578': 600}) ===
+chunks 716356
+rule: K neighbours, sim floor, crowd d (drop chunk if its 10th neighbour sim >= best - d), tol/slack of chain; V = chain length
+K=1 floor=None crowd=0.08 tol=0.05 slack=300 V=3: reported   5410 precision  80.7% | recall 300-500  20.9 500-1000  43.2 1-2kb  66.6 2kb+  88.8
+K=1 floor=None crowd=0.08 tol=0.1 slack=300 V=3: reported   5890 precision  78.1% | recall 300-500  23.6 500-1000  49.0 1-2kb  74.6 2kb+  92.0
+K=1 floor=None crowd=0.08 tol=0.1 slack=600 V=3: reported   6089 precision  77.5% | recall 300-500  24.7 500-1000  51.6 1-2kb  77.8 2kb+  93.7
+K=1 floor=None crowd=None tol=0.1 slack=300 V=4: reported   5771 precision  75.7% | recall 300-500  15.8 500-1000  41.3 1-2kb  67.9 2kb+  89.7
+K=1 floor=None crowd=None tol=0.1 slack=600 V=4: reported   5991 precision  75.3% | recall 300-500  16.6 500-1000  44.6 1-2kb  72.1 2kb+  91.8
+K=3 floor=None crowd=0.15 tol=0.1 slack=300 V=3: reported   5936 precision  74.2% | recall 300-500  17.1 500-1000  42.3 1-2kb  68.4 2kb+  90.1
+K=3 floor=None crowd=0.15 tol=0.1 slack=600 V=3: reported   6135 precision  73.5% | recall 300-500  18.2 500-1000  44.3 1-2kb  71.4 2kb+  91.8
+K=3 floor=None crowd=0.08 tol=0.1 slack=300 V=5: reported   5982 precision  73.0% | recall 300-500  12.8 500-1000  40.4 1-2kb  70.7 2kb+  89.5
+K=3 floor=None crowd=0.08 tol=0.05 slack=300 V=4: reported   6109 precision  72.6% | recall 300-500  19.6 500-1000  46.6 1-2kb  71.0 2kb+  89.3
+K=3 floor=None crowd=0.08 tol=0.1 slack=600 V=5: reported   6271 precision  72.4% | recall 300-500  13.9 500-1000  45.3 1-2kb  75.2 2kb+  92.2
+K=1 floor=None crowd=None tol=0.05 slack=300 V=3: reported   6461 precision  70.6% | recall 300-500  26.4 500-1000  49.8 1-2kb  72.5 2kb+  90.8
+K=3 floor=None crowd=0.08 tol=0.1 slack=300 V=4: reported   6895 precision  68.1% | recall 300-500  22.6 500-1000  52.9 1-2kb  78.7 2kb+  93.2
+K=3 floor=None crowd=0.08 tol=0.1 slack=600 V=4: reported   7168 precision  67.3% | recall 300-500  24.5 500-1000  57.2 1-2kb  83.5 2kb+  94.5
+K=5 floor=None crowd=0.15 tol=0.1 slack=300 V=3: reported   6704 precision  66.8% | recall 300-500  19.8 500-1000  44.4 1-2kb  70.5 2kb+  91.0
+K=3 floor=None crowd=None tol=0.05 slack=300 V=5: reported   6500 precision  66.6% | recall 300-500  14.1 500-1000  42.3 1-2kb  68.8 2kb+  88.4
+K=5 floor=None crowd=0.15 tol=0.1 slack=600 V=3: reported   6939 precision  66.1% | recall 300-500  20.9 500-1000  46.5 1-2kb  74.1 2kb+  92.6
+K=5 floor=None crowd=0.08 tol=0.05 slack=300 V=4: reported   7051 precision  64.1% | recall 300-500  22.0 500-1000  48.9 1-2kb  74.1 2kb+  90.3
+K=3 floor=None crowd=0.08 tol=0.05 slack=300 V=3: reported   7607 precision  63.8% | recall 300-500  32.3 500-1000  61.3 1-2kb  82.2 2kb+  93.8
+K=5 floor=None crowd=0.08 tol=0.1 slack=300 V=5: reported   7008 precision  63.8% | recall 300-500  13.3 500-1000  44.1 1-2kb  73.8 2kb+  91.0
+K=5 floor=None crowd=0.08 tol=0.1 slack=600 V=5: reported   7324 precision  63.4% | recall 300-500  15.2 500-1000  49.9 1-2kb  78.8 2kb+  93.1
+K=3 floor=None crowd=None tol=0.1 slack=600 V=6: reported   7190 precision  62.9% | recall 300-500  10.1 500-1000  42.3 1-2kb  76.0 2kb+  92.5
+K=1 floor=None crowd=None tol=0.1 slack=300 V=3: reported   7665 precision  62.6% | recall 300-500  30.2 500-1000  56.5 1-2kb  79.1 2kb+  93.9
+K=1 floor=None crowd=None tol=0.1 slack=600 V=3: reported   7921 precision  61.8% | recall 300-500  31.0 500-1000  59.6 1-2kb  81.5 2kb+  95.3
+K=3 floor=None crowd=0.08 tol=0.1 slack=300 V=3: reported   8868 precision  57.0% | recall 300-500  37.0 500-1000  69.2 1-2kb  87.5 2kb+  95.9
+K=3 floor=None crowd=None tol=0.05 slack=300 V=4: reported   8216 precision  56.8% | recall 300-500  24.7 500-1000  55.7 1-2kb  77.5 2kb+  91.7
+K=3 floor=None crowd=0.08 tol=0.1 slack=600 V=3: reported   9150 precision  56.3% | recall 300-500  38.9 500-1000  73.9 1-2kb  90.2 2kb+  96.9
+K=5 floor=None crowd=0.08 tol=0.1 slack=300 V=4: reported   8536 precision  56.0% | recall 300-500  26.4 500-1000  56.3 1-2kb  80.6 2kb+  93.9
+K=3 floor=None crowd=None tol=0.1 slack=300 V=5: reported   8252 precision  55.9% | recall 300-500  17.7 500-1000  49.9 1-2kb  77.5 2kb+  92.4
+K=5 floor=None crowd=0.08 tol=0.1 slack=600 V=4: reported   8839 precision  55.4% | recall 300-500  28.5 500-1000  60.5 1-2kb  84.9 2kb+  95.2
+K=3 floor=None crowd=None tol=0.1 slack=600 V=5: reported   8611 precision  55.4% | recall 300-500  19.0 500-1000  56.3 1-2kb  82.7 2kb+  94.1
+K=5 floor=None crowd=None tol=0.05 slack=300 V=5: reported   8581 precision  52.1% | recall 300-500  15.8 500-1000  47.5 1-2kb  73.8 2kb+  90.0
+K=5 floor=None crowd=0.08 tol=0.05 slack=300 V=3: reported   9809 precision  50.3% | recall 300-500  37.0 500-1000  64.2 1-2kb  83.5 2kb+  94.4
+K=5 floor=None crowd=None tol=0.1 slack=300 V=6: reported   9587 precision  46.6% | recall 300-500  10.6 500-1000  42.6 1-2kb  75.0 2kb+  91.1
+K=5 floor=None crowd=None tol=0.1 slack=600 V=6: reported  10052 precision  46.4% | recall 300-500  12.2 500-1000  49.2 1-2kb  81.0 2kb+  93.8
+K=3 floor=None crowd=None tol=0.1 slack=300 V=4: reported  11249 precision  44.0% | recall 300-500  29.1 500-1000  66.2 1-2kb  85.8 2kb+  95.1
+K=3 floor=None crowd=None tol=0.1 slack=600 V=4: reported  11628 precision  43.4% | recall 300-500  31.5 500-1000  70.9 1-2kb  88.4 2kb+  96.1
+K=5 floor=None crowd=0.08 tol=0.1 slack=300 V=3: reported  12896 precision  39.7% | recall 300-500  42.7 500-1000  72.0 1-2kb  88.6 2kb+  96.2
+K=5 floor=None crowd=None tol=0.05 slack=300 V=4: reported  12128 precision  39.4% | recall 300-500  28.8 500-1000  59.6 1-2kb  81.3 2kb+  92.9
+K=5 floor=None crowd=0.08 tol=0.1 slack=600 V=3: reported  13266 precision  39.3% | recall 300-500  44.8 500-1000  76.6 1-2kb  91.0 2kb+  97.1
+K=5 floor=None crowd=None tol=0.1 slack=300 V=5: reported  12514 precision  38.0% | recall 300-500  19.8 500-1000  57.1 1-2kb  82.1 2kb+  93.6
+K=5 floor=None crowd=None tol=0.1 slack=600 V=5: reported  12976 precision  37.7% | recall 300-500  22.0 500-1000  63.2 1-2kb  86.2 2kb+  95.0
+K=3 floor=None crowd=None tol=0.05 slack=300 V=3: reported  13752 precision  36.9% | recall 300-500  41.6 500-1000  70.2 1-2kb  88.1 2kb+  95.5
+K=5 floor=None crowd=None tol=0.1 slack=300 V=4: reported  18965 precision  26.6% | recall 300-500  34.8 500-1000  70.8 1-2kb  87.6 2kb+  95.8
+K=5 floor=None crowd=None tol=0.1 slack=600 V=4: reported  19573 precision  26.3% | recall 300-500  38.0 500-1000  75.1 1-2kb  90.3 2kb+  96.8
+K=3 floor=None crowd=None tol=0.1 slack=300 V=3: reported  19980 precision  26.3% | recall 300-500  47.8 500-1000  79.0 1-2kb  91.0 2kb+  97.2
+K=3 floor=None crowd=None tol=0.1 slack=600 V=3: reported  20617 precision  25.9% | recall 300-500  50.5 500-1000  82.0 1-2kb  93.5 2kb+  98.0
+K=5 floor=None crowd=None tol=0.05 slack=300 V=3: reported  24042 precision  21.5% | recall 300-500  47.0 500-1000  74.4 1-2kb  89.5 2kb+  96.2
+K=5 floor=None crowd=None tol=0.1 slack=300 V=3: reported  37510 precision  14.2% | recall 300-500  54.3 500-1000  81.7 1-2kb  92.6 2kb+  97.5
+K=5 floor=None crowd=None tol=0.1 slack=600 V=3: reported  38649 precision  14.0% | recall 300-500  57.6 500-1000  85.1 1-2kb  94.7 2kb+  98.3
+SWEEP_DONE

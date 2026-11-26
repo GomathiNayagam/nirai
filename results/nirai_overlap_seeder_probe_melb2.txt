@@ -1,0 +1,43 @@
+
+=== seeder probe: 8481 held-out reads, 257863 chunks, 11969 queries with a true partner; top-1 recall 85.3% ===
+wrong top-1 neighbours: near miss (100-1000 bases) 0.1%, far 14.6%, opposite strand 0.0%
+recall by read mean Q (Dorado fast): 0-10: 78.9% (n 1373) | 10-14: 86.1% (n 10532) | 14-17: 90.6% (n 64)
+recall by local speed, samples per base: 0-9: 86.5% (n 192) | 9-11: 87.6% (n 2514) | 11-13: 89.6% (n 5828) | 13-16: 86.6% (n 2441) | 16-22: 60.3% (n 758) | 22-99: 22.7% (n 225)
+recall by reference GC share: 0-0.3: 82.7% (n 52) | 0.3-0.4: 88.6% (n 1034) | 0.4-0.5: 86.0% (n 8179) | 0.5-0.6: 81.9% (n 2702)
+recall by longest homopolymer in 160 bases: 0-4: 84.9% (n 1954) | 4-5: 85.8% (n 4808) | 5-6: 85.4% (n 3512) | 6-8: 83.9% (n 1605) | 8-99: 93.3% (n 90)
+recall by compressibility of the 160-base reference window (low = repetitive): 0.45-0.5: 86.9% (n 5266) | 0.5-9: 84.1% (n 6693)
+recall by signal spread in chunk (sd, normalised): 0-0.8: 85.0% (n 7152) | 0.8-1: 85.8% (n 4605) | 1-1.2: 88.1% (n 193)
+recall by position inside read (0 = start, 1 = end): 0-0.1: 85.5% (n 586) | 0.1-0.3: 85.3% (n 2231) | 0.3-0.7: 86.3% (n 5742) | 0.7-0.9: 84.0% (n 2620) | 0.9-1.01: 82.2% (n 790)
+recall inside annotated repeat regions 39.6% (n 573) vs elsewhere 87.6%
+robustness (query chunk changed, bank unchanged; recall@1 on the same 1500 queries):
+  stretch x1 noise sd 0: recall@1 84.7% (n 1500)
+  stretch x0.8 noise sd 0: recall@1 67.8% (n 1500)
+  stretch x0.9 noise sd 0: recall@1 78.3% (n 1500)
+  stretch x1.1 noise sd 0: recall@1 84.0% (n 1499)
+  stretch x1.25 noise sd 0: recall@1 82.5% (n 1493)
+  stretch x1 noise sd 0.3: recall@1 8.0% (n 1500)
+  stretch x1 noise sd 0.6: recall@1 0.1% (n 1500)
+  stretch x1 noise sd 1.0: recall@1 0.0% (n 1500)
+PROBE_DONE
+### model v2 (augmented, 6000 steps): overlap_enc_v2.pt
+
+=== seeder probe: 8481 held-out reads, 257863 chunks, 11969 queries with a true partner; top-1 recall 85.6% ===
+wrong top-1 neighbours: near miss (100-1000 bases) 0.1%, far 14.4%, opposite strand 0.0%
+recall by read mean Q (Dorado fast): 0-10: 80.3% (n 1373) | 10-14: 86.2% (n 10532) | 14-17: 89.1% (n 64)
+recall by local speed, samples per base: 0-9: 82.3% (n 192) | 9-11: 87.9% (n 2514) | 11-13: 89.4% (n 5828) | 13-16: 86.6% (n 2441) | 16-22: 64.5% (n 758) | 22-99: 27.1% (n 225)
+recall by reference GC share: 0-0.3: 84.6% (n 52) | 0.3-0.4: 89.0% (n 1034) | 0.4-0.5: 86.2% (n 8179) | 0.5-0.6: 82.3% (n 2702)
+recall by longest homopolymer in 160 bases: 0-4: 85.2% (n 1954) | 4-5: 85.8% (n 4808) | 5-6: 85.9% (n 3512) | 6-8: 84.0% (n 1605) | 8-99: 95.6% (n 90)
+recall by compressibility of the 160-base reference window (low = repetitive): 0.45-0.5: 87.5% (n 5266) | 0.5-9: 84.0% (n 6693)
+recall by signal spread in chunk (sd, normalised): 0-0.8: 85.4% (n 7152) | 0.8-1: 85.8% (n 4605) | 1-1.2: 85.0% (n 193)
+recall by position inside read (0 = start, 1 = end): 0-0.1: 85.5% (n 586) | 0.1-0.3: 86.3% (n 2231) | 0.3-0.7: 86.5% (n 5742) | 0.7-0.9: 83.8% (n 2620) | 0.9-1.01: 82.8% (n 790)
+recall inside annotated repeat regions 39.1% (n 573) vs elsewhere 87.9%
+robustness (query chunk changed, bank unchanged; recall@1 on the same 1500 queries):
+  stretch x1 noise sd 0: recall@1 85.3% (n 1500)
+  stretch x0.8 noise sd 0: recall@1 78.6% (n 1500)
+  stretch x0.9 noise sd 0: recall@1 83.1% (n 1500)
+  stretch x1.1 noise sd 0: recall@1 85.3% (n 1499)
+  stretch x1.25 noise sd 0: recall@1 84.4% (n 1493)
+  stretch x1 noise sd 0.3: recall@1 77.1% (n 1500)
+  stretch x1 noise sd 0.6: recall@1 45.5% (n 1500)
+  stretch x1 noise sd 1.0: recall@1 8.8% (n 1500)
+PROBE_DONE

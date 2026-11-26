@@ -1,0 +1,222 @@
+
+=== overlap seeder, 46250 reads loaded in 11s; train steps 40, batch 96 loci; test region chromosome_1 >= 2461082 ===
+encoder parameters 333472
+step 0 loss 10.316 acc 0.04 0s
+step 39 loss 5.932 acc 0.38 8s
+test reads fully inside the held-out region: 8481
+bank chunks 257863 (with a position 121745)
+held-out retrieval: queries with a true partner in the bank 2978; recall@1 7.7%  @10 21.8%  @50 38.2%  (chance for a random pick: 0.012% per draw)
+SEEDER_DONE
+
+=== overlap seeder, 46250 reads loaded in 11s; train steps 3000, batch 96 loci; test region chromosome_1 >= 2461082 ===
+encoder parameters 333472
+step 0 loss 10.316 acc 0.04 0s
+step 200 loss 4.251 acc 0.52 42s
+step 400 loss 2.343 acc 0.75 86s
+step 600 loss 1.419 acc 0.86 129s
+step 800 loss 1.452 acc 0.90 173s
+step 1000 loss 1.324 acc 0.91 218s
+step 1200 loss 0.900 acc 0.94 262s
+step 1400 loss 0.822 acc 0.93 306s
+step 1600 loss 0.492 acc 0.98 350s
+step 1800 loss 0.996 acc 0.90 394s
+step 2000 loss 0.431 acc 0.95 438s
+step 2200 loss 1.196 acc 0.90 482s
+step 2400 loss 0.798 acc 0.96 526s
+step 2600 loss 0.513 acc 0.96 571s
+step 2800 loss 0.708 acc 0.95 615s
+step 2999 loss 0.600 acc 0.96 659s
+test reads fully inside the held-out region: 8481
+bank chunks 257863 (with a position 121745)
+held-out retrieval: queries with a true partner in the bank 2992; recall@1 83.1%  @10 91.8%  @50 95.5%  (chance for a random pick: 0.012% per draw)
+SEEDER_DONE
+
+=== overlap seeder AUG=1 ENC=overlap_enc_v2.pt, 46250 reads loaded in 11s; train steps 6000, batch 96 loci; test region chromosome_1 >= 2461082 ===
+encoder parameters 333472
+step 0 loss 11.614 acc 0.03 0s
+step 200 loss 7.348 acc 0.29 47s
+step 400 loss 3.974 acc 0.59 93s
+step 600 loss 2.954 acc 0.73 139s
+step 800 loss 2.842 acc 0.74 186s
+step 1000 loss 2.763 acc 0.75 232s
+step 1200 loss 2.815 acc 0.75 279s
+step 1400 loss 2.477 acc 0.74 325s
+step 1600 loss 1.626 acc 0.82 432s
+step 1800 loss 1.833 acc 0.85 557s
+step 2000 loss 2.066 acc 0.81 682s
+step 2200 loss 1.656 acc 0.80 804s
+step 2400 loss 1.634 acc 0.85 923s
+step 2600 loss 1.234 acc 0.90 1047s
+step 2800 loss 1.382 acc 0.89 1174s
+step 3000 loss 1.849 acc 0.82 1298s
+step 3200 loss 1.569 acc 0.89 1417s
+step 3400 loss 1.596 acc 0.86 1540s
+step 3600 loss 1.619 acc 0.90 1668s
+step 3800 loss 1.842 acc 0.85 1797s
+step 4000 loss 1.165 acc 0.90 1923s
+step 4200 loss 1.171 acc 0.91 2051s
+step 4400 loss 1.454 acc 0.89 2108s
+step 4600 loss 1.200 acc 0.90 2158s
+step 4800 loss 1.293 acc 0.91 2206s
+step 5000 loss 1.252 acc 0.89 2255s
+step 5200 loss 1.102 acc 0.90 2304s
+step 5400 loss 1.057 acc 0.90 2353s
+step 5600 loss 1.220 acc 0.91 2402s
+step 5800 loss 1.067 acc 0.92 2449s
+step 5999 loss 1.131 acc 0.90 2497s
+test reads fully inside the held-out region: 8481
+bank chunks 257863 (with a position 121745)
+held-out retrieval: queries with a true partner in the bank 2992; recall@1 82.6%  @10 91.5%  @50 94.5%  (chance for a random pick: 0.012% per draw)
+SEEDER_DONE
+
+=== overlap seeder AUG=1 ENC=overlap_enc_cv0.pt, 46250 reads loaded in 17s; train steps 6000, batch 96 loci; test region quarter 0 of each chromosome ===
+
+=== overlap seeder AUG=1 ENC=overlap_enc_cv1.pt, 46250 reads loaded in 17s; train steps 6000, batch 96 loci; test region quarter 1 of each chromosome ===
+encoder parameters 333472
+encoder parameters 333472
+step 0 loss 11.185 acc 0.01 1s
+step 0 loss 11.049 acc 0.00 1s
+step 200 loss 6.730 acc 0.32 120s
+step 200 loss 6.169 acc 0.32 125s
+step 400 loss 4.334 acc 0.52 240s
+step 400 loss 3.768 acc 0.56 248s
+step 600 loss 3.763 acc 0.64 360s
+step 600 loss 3.408 acc 0.69 372s
+step 800 loss 2.559 acc 0.77 479s
+step 800 loss 2.835 acc 0.67 496s
+step 1000 loss 2.564 acc 0.76 606s
+step 1000 loss 2.475 acc 0.74 627s
+step 1200 loss 2.264 acc 0.79 735s
+step 1200 loss 2.077 acc 0.78 767s
+step 1400 loss 2.260 acc 0.80 871s
+step 1400 loss 2.488 acc 0.74 897s
+step 1600 loss 2.086 acc 0.81 1003s
+step 1600 loss 1.303 acc 0.88 1030s
+step 1800 loss 2.133 acc 0.85 1132s
+step 1800 loss 2.617 acc 0.78 1164s
+step 2000 loss 1.432 acc 0.88 1262s
+step 2000 loss 1.747 acc 0.86 1302s
+step 2200 loss 2.595 acc 0.74 1394s
+step 2200 loss 2.417 acc 0.76 1441s
+step 2400 loss 1.905 acc 0.90 1524s
+step 2400 loss 1.618 acc 0.84 1577s
+step 2600 loss 1.314 acc 0.90 1654s
+step 2600 loss 1.978 acc 0.81 1718s
+step 2800 loss 1.548 acc 0.89 1785s
+step 2800 loss 1.688 acc 0.84 1857s
+step 3000 loss 1.622 acc 0.86 1918s
+step 3000 loss 2.163 acc 0.80 1995s
+step 3200 loss 1.218 acc 0.91 2043s
+step 3200 loss 1.683 acc 0.88 2128s
+step 3400 loss 1.112 acc 0.92 2174s
+step 3400 loss 1.206 acc 0.88 2266s
+step 3600 loss 1.646 acc 0.86 2308s
+step 3600 loss 1.418 acc 0.89 2403s
+step 3800 loss 1.509 acc 0.86 2444s
+step 3800 loss 1.162 acc 0.89 2537s
+step 4000 loss 1.060 acc 0.92 2576s
+step 4000 loss 1.201 acc 0.92 2673s
+step 4200 loss 1.979 acc 0.89 2707s
+step 4200 loss 1.705 acc 0.82 2810s
+step 4400 loss 0.902 acc 0.95 2840s
+step 4400 loss 1.518 acc 0.86 2948s
+step 4600 loss 1.367 acc 0.86 2973s
+step 4600 loss 1.124 acc 0.91 3084s
+step 4800 loss 0.867 acc 0.94 3104s
+step 4800 loss 1.276 acc 0.90 3221s
+step 5000 loss 1.469 acc 0.85 3237s
+step 5000 loss 1.108 acc 0.91 3358s
+step 5200 loss 1.957 acc 0.83 3366s
+step 5200 loss 1.170 acc 0.91 3496s
+step 5400 loss 0.957 acc 0.91 3500s
+step 5600 loss 1.022 acc 0.92 3630s
+step 5400 loss 1.022 acc 0.91 3636s
+step 5800 loss 0.951 acc 0.96 3761s
+step 5600 loss 0.857 acc 0.95 3773s
+step 5999 loss 0.943 acc 0.92 3890s
+test reads fully inside the held-out region: 12434
+step 5800 loss 1.339 acc 0.91 3910s
+step 5999 loss 1.334 acc 0.88 4045s
+test reads fully inside the held-out region: 10241
+bank chunks 375786 (with a position 179288)
+held-out retrieval: queries with a true partner in the bank 2998; recall@1 81.2%  @10 88.9%  @50 92.2%  (chance for a random pick: 0.013% per draw)
+SEEDER_DONE
+bank chunks 313815 (with a position 151277)
+held-out retrieval: queries with a true partner in the bank 2988; recall@1 78.4%  @10 87.0%  @50 91.8%  (chance for a random pick: 0.009% per draw)
+SEEDER_DONE
+
+=== overlap seeder AUG=1 ENC=overlap_enc_cv2.pt, 46250 reads loaded in 17s; train steps 6000, batch 96 loci; test region quarter 2 of each chromosome ===
+
+=== overlap seeder AUG=1 ENC=overlap_enc_cv3.pt, 46250 reads loaded in 17s; train steps 6000, batch 96 loci; test region quarter 3 of each chromosome ===
+encoder parameters 333472
+encoder parameters 333472
+step 0 loss 11.669 acc 0.02 0s
+step 0 loss 11.660 acc 0.03 1s
+step 200 loss 6.990 acc 0.31 132s
+step 200 loss 6.473 acc 0.35 134s
+step 400 loss 4.140 acc 0.53 261s
+step 400 loss 4.140 acc 0.55 263s
+step 600 loss 3.138 acc 0.66 394s
+step 600 loss 3.127 acc 0.62 394s
+step 800 loss 3.630 acc 0.67 523s
+step 800 loss 2.904 acc 0.69 526s
+step 1000 loss 3.089 acc 0.71 648s
+step 1000 loss 3.096 acc 0.68 661s
+step 1200 loss 2.509 acc 0.73 775s
+step 1200 loss 2.182 acc 0.73 791s
+step 1400 loss 1.931 acc 0.80 907s
+step 1400 loss 1.897 acc 0.82 922s
+step 1600 loss 2.240 acc 0.79 1038s
+step 1600 loss 2.115 acc 0.77 1055s
+step 1800 loss 1.864 acc 0.86 1170s
+step 1800 loss 2.010 acc 0.79 1183s
+step 2000 loss 1.870 acc 0.83 1302s
+step 2000 loss 1.714 acc 0.84 1312s
+step 2200 loss 1.683 acc 0.84 1428s
+step 2200 loss 1.779 acc 0.83 1445s
+step 2400 loss 1.228 acc 0.90 1554s
+step 2400 loss 1.996 acc 0.79 1577s
+step 2600 loss 1.356 acc 0.90 1681s
+step 2600 loss 1.707 acc 0.86 1708s
+step 2800 loss 1.187 acc 0.91 1810s
+step 2800 loss 1.591 acc 0.86 1842s
+step 3000 loss 1.290 acc 0.91 1939s
+step 3000 loss 1.654 acc 0.83 1975s
+step 3200 loss 1.316 acc 0.91 2067s
+step 3200 loss 1.874 acc 0.85 2111s
+step 3400 loss 1.747 acc 0.89 2196s
+step 3400 loss 1.179 acc 0.89 2248s
+step 3600 loss 1.597 acc 0.86 2325s
+step 3600 loss 1.536 acc 0.89 2381s
+step 3800 loss 1.423 acc 0.90 2458s
+step 3800 loss 1.322 acc 0.89 2513s
+step 4000 loss 1.641 acc 0.88 2588s
+step 4000 loss 0.889 acc 0.93 2640s
+step 4200 loss 1.161 acc 0.89 2718s
+step 4200 loss 1.244 acc 0.91 2756s
+step 4400 loss 1.171 acc 0.92 2804s
+step 4400 loss 1.401 acc 0.82 2848s
+step 4600 loss 1.515 acc 0.90 2893s
+step 4600 loss 1.079 acc 0.91 2929s
+step 4800 loss 0.892 acc 0.94 2981s
+step 4800 loss 1.242 acc 0.89 3019s
+step 5000 loss 1.083 acc 0.93 3063s
+step 5000 loss 1.587 acc 0.88 3112s
+step 5200 loss 1.238 acc 0.86 3172s
+step 5200 loss 1.269 acc 0.90 3233s
+step 5400 loss 1.696 acc 0.84 3291s
+step 5400 loss 1.141 acc 0.94 3353s
+step 5600 loss 1.089 acc 0.92 3407s
+step 5600 loss 1.006 acc 0.93 3474s
+step 5800 loss 0.797 acc 0.92 3526s
+step 5800 loss 0.823 acc 0.94 3595s
+step 5999 loss 1.010 acc 0.91 3642s
+test reads fully inside the held-out region: 12664
+step 5999 loss 1.422 acc 0.91 3712s
+test reads fully inside the held-out region: 10795
+bank chunks 381158 (with a position 177514)
+bank chunks 334076 (with a position 158837)
+held-out retrieval: queries with a true partner in the bank 2989; recall@1 81.0%  @10 89.5%  @50 93.5%  (chance for a random pick: 0.008% per draw)
+SEEDER_DONE
+held-out retrieval: queries with a true partner in the bank 2986; recall@1 79.0%  @10 87.5%  @50 92.0%  (chance for a random pick: 0.008% per draw)
+SEEDER_DONE
